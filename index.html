@@ -221,7 +221,7 @@ function checkout() {
       <h3>CHIMERA TOOL</h3>
       <p>chimera tool/12mois</p>
       <p class="price">120$</p>
-      <button onclick="addToCart('CHIMERA TOOL', 90)">Ajouter au panier</button>
+      <button onclick="addToCart('CHIMERA TOOL', 120)">Ajouter au panier</button>
     </div>
  </div>
     </div>
@@ -321,9 +321,42 @@ function checkout() {
     <ul id="cart-items"></ul>
     <p><strong>Total :</strong> <span id="total">0</span>$</p>
     <button id="checkout" onclick="checkout()">Passer la commande</button>
-  </div>
-   
-    </div>
+  
+</div>
+
+  <!-- JavaScript -->
+  <script>
+    let cart = [];
+    let total = 0;
+
+    function addToCart(product, price) {
+      cart.push({ name: product, price: price });
+      total += price;
+      updateCart();
+    }
+
+    function updateCart() {
+      const cartItems = document.getElementById("cart-items");
+      cartItems.innerHTML = "";
+      cart.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = `${item.name} - ${item.price}$`;
+        cartItems.appendChild(li);
+      });
+      document.getElementById("total").textContent = total;
+    }
+
+    function checkout() {
+      if (cart.length === 0) {
+        alert("Votre panier est vide !");
+      } else {
+        alert("Merci pour votre commande ! notre service assistance client vous contactera tout de suite.");
+        cart = [];
+        total = 0;
+        updateCart();
+      }
+    }
+ 
   </section>
 
   <section class="products" id="maintenance">
