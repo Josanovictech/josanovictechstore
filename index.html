@@ -86,6 +86,46 @@
       <a href="#maintenance" class="card">🔧 Maintenance</a>
     </div>
   </section>
+   <!-- Je vais intégrer ici le bouton "Passer la commande" avec redirection vers lien de paiement,
+     et une section "Méthodes de paiement" juste après -->
+
+<!-- AJOUT À FAIRE dans le script checkout() dans ton <script> -->
+<script>
+function checkout() {
+  if (cart.length === 0) {
+    alert("Votre panier est vide !");
+  } else {
+    // Message de confirmation
+    alert("Merci pour votre commande ! Vous allez être redirigé vers la page de paiement.");
+
+    // Redirection vers lien de paiement (exemple : PayPal, Flutterwave, Stripe...)
+    window.location.href = "https://tonliendepaiement.com"; // <-- remplace par ton vrai lien de paiement
+
+    cart = [];
+    total = 0;
+    updateCart();
+  }
+}
+
+
+  </script>
+</script>
+
+<!-- AJOUTER CETTE SECTION juste avant </body> ou après la section #cart -->
+<section style="padding: 30px; text-align: center; background-color: #ffffff;">
+  <h2>Méthodes de paiement acceptées</h2>
+  <p>Nous acceptons les paiements via :</p>
+  <ul style="list-style-type: none; padding-left: 0; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+    <li><img src="images/visa.png" alt="Visa" style="height: 40px;"></li>
+    <li><img src="images/mastercard.png" alt="Mastercard" style="height: 40px;"></li>
+    <li><img src="images/mpesa.png" alt="M-Pesa" style="height: 40px;"></li>
+    <li><img src="images/orangemoney.png" alt="Orange Money" style="height: 40px;"></li>
+    <li><img src="images/paypal.png" alt="PayPal" style="height: 40px;"></li>
+  </ul>
+  <p style="margin-top: 10px;">Mobile Money, Cartes bancaires, PayPal, ou transfert direct.</p>
+</section>
+
+<!-- NOTE : place les logos dans ton dossier /images (ou remplace les src par des URL en ligne) -->
 
   <section class="products" id="mdm">
     <h2>Fichiers MDM</h2>
@@ -205,46 +245,7 @@
         updateCart();
       }
     }
-    <!-- Je vais intégrer ici le bouton "Passer la commande" avec redirection vers lien de paiement,
-     et une section "Méthodes de paiement" juste après -->
-
-<!-- AJOUT À FAIRE dans le script checkout() dans ton <script> -->
-<script>
-function checkout() {
-  if (cart.length === 0) {
-    alert("Votre panier est vide !");
-  } else {
-    // Message de confirmation
-    alert("Merci pour votre commande ! Vous allez être redirigé vers la page de paiement.");
-
-    // Redirection vers lien de paiement (exemple : PayPal, Flutterwave, Stripe...)
-    window.location.href = "https://tonliendepaiement.com"; // <-- remplace par ton vrai lien de paiement
-
-    cart = [];
-    total = 0;
-    updateCart();
-  }
-}
-
-
-  </script>
-</script>
-
-<!-- AJOUTER CETTE SECTION juste avant </body> ou après la section #cart -->
-<section style="padding: 30px; text-align: center; background-color: #ffffff;">
-  <h2>Méthodes de paiement acceptées</h2>
-  <p>Nous acceptons les paiements via :</p>
-  <ul style="list-style-type: none; padding-left: 0; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
-    <li><img src="images/visa.png" alt="Visa" style="height: 40px;"></li>
-    <li><img src="images/mastercard.png" alt="Mastercard" style="height: 40px;"></li>
-    <li><img src="images/mpesa.png" alt="M-Pesa" style="height: 40px;"></li>
-    <li><img src="images/orangemoney.png" alt="Orange Money" style="height: 40px;"></li>
-    <li><img src="images/paypal.png" alt="PayPal" style="height: 40px;"></li>
-  </ul>
-  <p style="margin-top: 10px;">Mobile Money, Cartes bancaires, PayPal, ou transfert direct.</p>
-</section>
-
-<!-- NOTE : place les logos dans ton dossier /images (ou remplace les src par des URL en ligne) -->
+   
 </body>
 </html>
 
