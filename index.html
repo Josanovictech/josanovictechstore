@@ -3,59 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <a href="signup.html">Créer un compte</a>
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <title>Créer un compte - JosanovicTech Store</title>
-</head>
-<body>
-  <h2>Créer un compte</h2>
-  <input type="email" id="email" placeholder="Votre email">
-  <input type="password" id="password" placeholder="Mot de passe">
-  <button onclick="signup()">Créer un compte</button>
-  <p id="message"></p>
-
-  <!-- Scripts Firebase -->
-  <script src="https://www.gstatic.com/firebasejs/10.3.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.3.1/firebase-auth.js"></script>
-
-  <script>
-    // Remplace par TES informations Firebase
-    const firebaseConfig = {
-      apiKey: "AIzaSyBU7IL6Wm2F89ZK5qbmGIMtutQhBA4VtUo",
-      authDomain: "josanovictechauth.firebaseapp.com",
-  projectId: "josanovictechauth",
-      appId: "1:407987063355:web:115181e31708f4ac766a1e"
-    };
-
-    // Initialiser Firebase
-    firebase.initializeApp(firebaseConfig);
-    const auth = firebase.auth();
-
-    // Fonction d'inscription
-    function signup() {
-      const email = document.getElementById("email").value;
-      const password = document.getElementById("password").value;
-
-      auth.createUserWithEmailAndPassword(email, password)
-        .then((userCredential) => {
-          const user = userCredential.user;
-          user.sendEmailVerification().then(() => {
-            document.getElementById("message").innerText = 
-              "Compte créé ! Vérifiez votre email pour confirmer.";
-          });
-        })
-        .catch((error) => {
-          document.getElementById("message").innerText = "Erreur : " + error.message;
-        });
-    }
-  </script>
-</body>
-</html>
-
-  <title>JosanovicTech Store</title>
+   <title>JosanovicTech Store</title>
   <link rel="stylesheet" href="style.css">
   <style>
     body {
