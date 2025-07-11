@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Connexion - JosanovicTech</title>
+  <script src="https://www.gstatic.com/firebasejs/10.3.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.3.1/firebase-auth.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+    input, button { margin: 10px; padding: 10px; width: 250px; }
+  </style>
+</head>
+<body>
+  <h2>Connexion à JosanovicTech</h2>
+  <input type="email" id="email" placeholder="Email"><br>
+  <input type="password" id="password" placeholder="Mot de passe"><br>
+  <button onclick="login()">Se connecter</button><br>
+  <button onclick="resetPassword()">Mot de passe oublié ?</button>
+  <p id="message"></p>
+
+  <script>
+    const firebaseConfig = {
+      apiKey: "TA_CLE_API",
+      authDomain: "TON_PROJET.firebaseapp.com",
+      projectId: "TON_PROJET",
+      appId: "TON_APP_ID"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+
+    function login() {
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      auth.signInWithEmailAndPassword(email, password)
+        .then(() => {
+          window.location.href = "index.html";
+        })
+        .catch((error) => {
+          document.getElementById("message").innerText = "Erreur : " + error.message;
+        });
+    }
+
+    function resetPassword() {
+      const email = document.getElementById("email").value;
+      if (!email) return alert("Entrez d'abord votre email.");
+
+      auth.sendPasswordResetEmail(email)
+        .then(() => {
+          alert("Email de réinitialisation envoyé !");
+        })
+        .catch((error) => {
+          document.getElementById("message").innerText = "Erreur : " + error.message;
+        });
+    }
+  </script>
+</body>
+</html>
