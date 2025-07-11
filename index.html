@@ -1,48 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <body>
-  <!-- Firebase SDK -->
-<script src="https://www.gstatic.com/firebasejs/10.3.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.3.1/firebase-auth.js"></script>
-  <h3>Créer un compte</h3>
-
-    <div id="signup-box" style="position: absolute; top: 20px; left: 20px; background: #f4f4f4; padding: 15px; border-radius: 8px; box-shadow: 2px 2px 5px rgba(0,0,0,0.2); z-index: 1000;">
-  <h3>Créer un compte</h3>
-  <input type="email" id="email" placeholder="Email" style="margin:5px;"><br>
-  <input type="password" id="password" placeholder="Mot de passe" style="margin:5px;"><br>
-  <button onclick="signup()">S'inscrire</button>
-  <p id="message" style="color: green; font-size: 14px;"></p>
-</div>
  
-  <script>
-  // Ton vrai code de config Firebase ici
-  const firebaseConfig = {
-    apiKey: "AIzaSyBU7IL6Wm2F89ZK5qbmGIMtutQhBA4VtUo",
-    authDomain: "josanovictechauth.firebaseapp.com",
-    projectId: "josanovictechauth",
-    appId: "1:407987063355:web:115181e31708f4ac766a1e"
-  };
-
-  firebase.initializeApp(firebaseConfig);
-  const auth = firebase.auth();
-
-  function signup() {
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-
-    auth.createUserWithEmailAndPassword(email, password)
-      .then((userCredential) => {
-        const user = userCredential.user;
-        user.sendEmailVerification().then(() => {
-          document.getElementById("message").innerText = 
-            "Compte créé ! Vérifiez votre email.";
-        });
-      })
-      .catch((error) => {
-        document.getElementById("message").innerText = "Erreur : " + error.message;
-      });
-  }
 </script>
 
   <meta charset="UTF-8">
