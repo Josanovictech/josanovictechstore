@@ -11,6 +11,25 @@
   <script src="https://www.gstatic.com/firebasejs/10.3.1/firebase-auth.js"></script>
 
   <style>
+    <script src="https://www.gstatic.com/firebasejs/10.3.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.3.1/firebase-auth.js"></script>
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyBU7IL6Wm2F89ZK5qbmGIMtutQhBA4VtUo",
+    authDomain: "josanovictechauth.firebaseapp.com",
+    projectId: "josanovictechauth",
+    appId: "1:407987063355:web:115181e31708f4ac766a1e"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+
+  firebase.auth().onAuthStateChanged((user) => {
+    if (!user) {
+      window.location.href = "login.html";
+    }
+  });
+</script>
+
     body {
       font-family: Arial, sans-serif;
     }
@@ -411,44 +430,5 @@ function checkout() {
   </footer>
 </body>
 </html>
-  <!-- Script Firebase -->
-  <script>
-    // 👉 REMPLACE LES INFOS CI-DESSOUS PAR LES TIENNES
-    const firebaseConfig = {
-      apiKey: "AIzaSyBU7IL6Wm2F89ZK5qbmGIMtutQhBA4VtUo",
-      authDomain: "josanovictechauth.firebaseapp.com",
-      projectId: "josanovictechauth",
-      appId: "1:407987063355:web:115181e31708f4ac766a1e"
-    };
 
-    // Initialiser Firebase
-    firebase.initializeApp(firebaseConfig);
-    const auth = firebase.auth();
-
-    // Fonction inscription
-    function signup() {
-      const email = document.getElementById("email").value;
-      const password = document.getElementById("password").value;
-
-      auth.createUserWithEmailAndPassword(email, password)
-        .then((userCredential) => {
-          const user = userCredential.user;
-          user.sendEmailVerification().then(() => {
-            document.getElementById("message").innerText = "Email envoyé ! Vérifiez votre boîte mail.";
-          });
-        })
-        .catch((error) => {
-          document.getElementById("message").innerText = "Erreur : " + error.message;
-        });
-    }
-  </script>
-</body>
-</html>
-<script>
-  firebase.auth().onAuthStateChanged((user) => {
-    if (!user) {
-      window.location.href = "login.html";
-    }
-  });
-</script>
 
