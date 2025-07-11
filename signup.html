@@ -35,12 +35,10 @@
 
       auth.createUserWithEmailAndPassword(email, password)
         .then((userCredential) => {
-          const user = userCredential.user;
-          user.sendEmailVerification()
-            .then(() => {
-              document.getElementById("message").innerText =
-                "Compte créé ! Un email de vérification a été envoyé.";
-            });
+          userCredential.user.sendEmailVerification().then(() => {
+            document.getElementById("message").innerText = 
+              "Compte créé ! Vérifiez votre email pour activer votre compte.";
+          });
         })
         .catch((error) => {
           document.getElementById("message").innerText = "Erreur : " + error.message;
