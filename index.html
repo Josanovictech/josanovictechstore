@@ -1,6 +1,76 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JosanovicTech Store</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/10.3.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.3.1/firebase-auth.js"></script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    #signup-box {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: #f9f9f9;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+      z-index: 999;
+      width: 250px;
+    }
+
+    #signup-box input {
+      width: 100%;
+      margin: 5px 0;
+      padding: 8px;
+      border: 1px solid #aaa;
+      border-radius: 5px;
+    }
+
+    #signup-box button {
+      width: 100%;
+      padding: 8px;
+      background-color: #008CBA;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #signup-box button:hover {
+      background-color: #005f7f;
+    }
+
+    #message {
+      margin-top: 10px;
+      font-size: 14px;
+      color: green;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Formulaire en haut à gauche -->
+  <div id="signup-box">
+    <h3>Créer un compte</h3>
+    <input type="josanovictech@gmail.com" id="email" placeholder="Email">
+    <input type="iphoneLM20." id="password" placeholder="Mot de passe">
+    <button onclick="signup()">S'inscrire</button>
+    <p id="message"></p>
+  </div>
+
+  <!-- CONTENU DE TON SITE -->
+
+<head>
  
 </script>
 
@@ -111,7 +181,7 @@ function checkout() {
 }
 
 
- </script>
+  </script>
 </script>
 
 <!-- AJOUTER CETTE SECTION juste avant </body> ou après la section #cart -->
@@ -341,3 +411,44 @@ function checkout() {
   </footer>
 </body>
 </html>
+  <!-- Script Firebase -->
+  <script>
+    // 👉 REMPLACE LES INFOS CI-DESSOUS PAR LES TIENNES
+    const firebaseConfig = {
+      apiKey: "AIzaSyBU7IL6Wm2F89ZK5qbmGIMtutQhBA4VtUo",
+      authDomain: "josanovictechauth.firebaseapp.com",
+      projectId: "josanovictechauth",
+      appId: "1:407987063355:web:115181e31708f4ac766a1e"
+    };
+
+    // Initialiser Firebase
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+
+    // Fonction inscription
+    function signup() {
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      auth.createUserWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+          const user = userCredential.user;
+          user.sendEmailVerification().then(() => {
+            document.getElementById("message").innerText = "Email envoyé ! Vérifiez votre boîte mail.";
+          });
+        })
+        .catch((error) => {
+          document.getElementById("message").innerText = "Erreur : " + error.message;
+        });
+    }
+  </script>
+</body>
+</html>
+<script>
+  firebase.auth().onAuthStateChanged((user) => {
+    if (!user) {
+      window.location.href = "login.html";
+    }
+  });
+</script>
+
