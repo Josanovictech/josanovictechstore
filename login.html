@@ -17,6 +17,7 @@
   <button onclick="login()">Se connecter</button><br>
   <button onclick="resetPassword()">Mot de passe oublié ?</button>
   <p id="message"></p>
+  <p><a href="signup.html">Créer un compte</a></p>
 
   <script>
     const firebaseConfig = {
@@ -47,9 +48,7 @@
       if (!email) return alert("Entrez d'abord votre email.");
 
       auth.sendPasswordResetEmail(email)
-        .then(() => {
-          alert("Email de réinitialisation envoyé !");
-        })
+        .then(() => alert("Email de réinitialisation envoyé !"))
         .catch((error) => {
           document.getElementById("message").innerText = "Erreur : " + error.message;
         });
