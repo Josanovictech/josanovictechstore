@@ -5,29 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JosanovicTech Store</title>
   <link rel="stylesheet" href="style.css">
+<head>
 
-  <!-- Firebase SDK -->
-  <script src="https://www.gstatic.com/firebasejs/10.3.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.3.1/firebase-auth.js"></script>
-
-  <style>
-    <script src="https://www.gstatic.com/firebasejs/10.3.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.3.1/firebase-auth.js"></script>
-<script>
-  const firebaseConfig = {
-    apiKey: "AIzaSyBU7IL6Wm2F89ZK5qbmGIMtutQhBA4VtUo",
-    authDomain: "josanovictechauth.firebaseapp.com",
-    projectId: "josanovictechauth",
-    appId: "1:407987063355:web:115181e31708f4ac766a1e"
-  };
-
-  firebase.initializeApp(firebaseConfig);
-
-  firebase.auth().onAuthStateChanged((user) => {
-    if (!user) {
-      window.location.href = "login.html";
-    }
-  });
 </script>
 
     body {
