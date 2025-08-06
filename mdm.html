@@ -1,160 +1,118 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
   <title>Fichiers MDM - JosanovicTech Store</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      margin: 0;
-      padding: 0;
-    }
-
-    header {
-      background-color: #0a0a23;
-      color: white;
-      text-align: center;
       padding: 20px;
+      background-color: #f4f4f4;
     }
-
     h1 {
-      margin: 0;
-      font-size: 28px;
+      text-align: center;
+      color: #333;
     }
-
-    .container {
-      max-width: 1000px;
-      margin: 30px auto;
-      padding: 0 20px;
-    }
-
-    h2 {
-      color: #0a0a23;
-      margin-top: 40px;
-      border-bottom: 2px solid #ccc;
-      padding-bottom: 5px;
-    }
-
-    .file-list {
+    .brand-buttons {
       display: flex;
       flex-wrap: wrap;
-      gap: 20px;
-      margin-top: 20px;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 20px;
     }
-
-    .file-card {
-      background-color: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      text-align: center;
-      width: calc(50% - 20px);
-    }
-
-    .file-card h3 {
-      margin: 10px 0;
-      font-size: 18px;
-      color: #222;
-    }
-
-    .download-btn {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 10px 15px;
-      background-color: #0a0a23;
+    .brand-buttons button {
+      padding: 10px 20px;
+      border: none;
+      background-color: #0e73d9;
       color: white;
-      text-decoration: none;
       border-radius: 5px;
-      font-weight: bold;
-      transition: background-color 0.3s;
+      cursor: pointer;
     }
-
-    .download-btn:hover {
-      background-color: #1a1a3c;
+    .file-list {
+      display: none;
+      margin-top: 20px;
+      background: #fff;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
-
-    @media (max-width: 600px) {
-      .file-card {
-        width: 100%;
-      }
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    li {
+      padding: 5px 0;
+    }
+    li a {
+      text-decoration: none;
+      color: #007bff;
+    }
+    li a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Fichiers MDM</h1>
-    <p>Téléchargez les fichiers MDM classés par marque</p>
-  </header>
 
-  <div class="container">
+  <h1>Fichiers MDM par Marque</h1>
 
-    <!-- SAMSUNG -->
-    <h2>Samsung</h2>
-    <div class="file-list">
-      <div class="file-card">
-        <h3>Samsung A12</h3>
-        <a href="../fichier_mdm/mdm_samsung_a12.zip" class="download-btn" download>Télécharger</a>
-      </div>
-      <div class="file-card">
-        <h3>Samsung A32</h3>
-        <a href="../fichier_mdm/mdm_samsung_a32.zip" class="download-btn" download>Télécharger</a>
-      </div>
-    </div>
-
-    <!-- INFINIX -->
-    <h2>Infinix</h2>
-    <div class="file-list">
-      <div class="file-card">
-        <h3>Infinix X657</h3>
-        <a href="../fichier_mdm/mdm_infinix_x657.zip" class="download-btn" download>Télécharger</a>
-      </div>
-      <div class="file-card">
-        <h3>Infinix Note 8</h3>
-        <a href="../fichier_mdm/mdm_infinix_note8.zip" class="download-btn" download>Télécharger</a>
-      </div>
-    </div>
-
-    <!-- TECNO -->
-    <h2>Tecno</h2>
-    <div class="file-list">
-      <div class="file-card">
-        <h3>Camon 18</h3>
-        <a href="../fichier_mdm/mdm_tecno_camon18.zip" class="download-btn" download>Télécharger</a>
-      </div>
-      <div class="file-card">
-        <h3>Pop 5</h3>
-        <a href="../fichier_mdm/mdm_tecno_pop5.zip" class="download-btn" download>Télécharger</a>
-      </div>
-    </div>
-
-    <!-- ITEL -->
-    <h2>Itel</h2>
-    <div class="file-list">
-      <div class="file-card">
-        <h3>Itel A36</h3>
-        <a href="../fichier_mdm/mdm_itel_a36.zip" class="download-btn" download>Télécharger</a>
-      </div>
-      <div class="file-card">
-        <h3>Itel S15</h3>
-        <a href="../fichier_mdm/mdm_itel_s15.zip" class="download-btn" download>Télécharger</a>
-      </div>
-    </div>
-
-    <!-- NOKIA -->
-    <h2>Nokia</h2>
-    <div class="file-list">
-      <div class="file-card">
-        <h3>Nokia C1</h3>
-        <a href="../fichier_mdm/mdm_nokia_c1.zip" class="download-btn" download>Télécharger</a>
-      </div>
-      <div class="file-card">
-        <h3>Nokia 2.3</h3>
-        <a href="../fichier_mdm/mdm_nokia_2_3.zip" class="download-btn" download>Télécharger</a>
-      </div>
-    </div>
-
+  <div class="brand-buttons">
+    <button onclick="showList('samsung')">Samsung</button>
+    <button onclick="showList('tecno')">Tecno</button>
+    <button onclick="showList('infinix')">Infinix</button>
+    <button onclick="showList('itel')">iTel</button>
+    <button onclick="showList('nokia')">Nokia</button>
   </div>
+
+  <!-- Samsung Files -->
+  <div id="samsung" class="file-list">
+    <h3>Fichiers Samsung</h3>
+    <ul>
+      <li><a href="fichiers/samsung/A10_FRP_Bypass.zip" download>A10_FRP_Bypass.zip</a></li>
+      <li><a href="fichiers/samsung/A20_MDM_Tool.zip" download>A20_MDM_Tool.zip</a></li>
+    </ul>
+  </div>
+
+  <!-- Tecno Files -->
+  <div id="tecno" class="file-list">
+    <h3>Fichiers Tecno</h3>
+    <ul>
+      <li><a href="fichiers/tecno/Tecno_Spark_FRP.zip" download>Tecno_Spark_FRP.zip</a></li>
+      <li><a href="fichiers/tecno/Tecno_POVA_MDM.zip" download>Tecno_POVA_MDM.zip</a></li>
+    </ul>
+  </div>
+
+  <!-- Infinix Files -->
+  <div id="infinix" class="file-list">
+    <h3>Fichiers Infinix</h3>
+    <ul>
+      <li><a href="fichiers/infinix/Infinix_Hot_10_FRP.zip" download>Infinix_Hot_10_FRP.zip</a></li>
+    </ul>
+  </div>
+
+  <!-- iTel Files -->
+  <div id="itel" class="file-list">
+    <h3>Fichiers iTel</h3>
+    <ul>
+      <li><a href="fichiers/itel/iTel_A36_FRP.zip" download>iTel_A36_FRP.zip</a></li>
+    </ul>
+  </div>
+
+  <!-- Nokia Files -->
+  <div id="nokia" class="file-list">
+    <h3>Fichiers Nokia</h3>
+    <ul>
+      <li><a href="fichiers/nokia/Nokia_2.3_FRP.zip" download>Nokia_2.3_FRP.zip</a></li>
+    </ul>
+  </div>
+
+  <script>
+    function showList(id) {
+      const lists = document.querySelectorAll('.file-list');
+      lists.forEach(list => list.style.display = 'none');
+      document.getElementById(id).style.display = 'block';
+    }
+  </script>
+
 </body>
 </html>
