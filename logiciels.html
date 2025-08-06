@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nos Logiciels - JosanovicTech Store</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background-color: #0a0a23;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 28px;
+    }
+
+    .logiciels-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 30px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .logiciel-card {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.2s;
+    }
+
+    .logiciel-card:hover {
+      transform: scale(1.02);
+    }
+
+    .logiciel-card img {
+      width: 80px;
+      margin-bottom: 15px;
+    }
+
+    .logiciel-card h3 {
+      margin: 10px 0 5px;
+      font-size: 20px;
+    }
+
+    .logiciel-card p {
+      font-size: 14px;
+      color: #444;
+    }
+
+    .download-btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #0a0a23;
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .download-btn:hover {
+      background-color: #1a1a3c;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Nos Logiciels</h1>
+    <p>Téléchargez nos outils professionnels</p>
+  </header>
+
+  <section class="logiciels-container">
+    <div class="logiciel-card">
+      <img src="../images/unlock-icon.png" alt="Unlock PRO">
+      <h3>JosanovicTech Unlock PRO v1.1</h3>
+      <p>Logiciel de déblocage FRP, flash et MDM pour smartphones. Compatible Windows 64-bit.</p>
+      <a class="download-btn" href="../logiciels/JosanovicTech_Unlock_PRO_v1.1.zip" download>Télécharger</a>
+    </div>
+
+    <!-- Autres logiciels à ajouter ici -->
+    <!--
+    <div class="logiciel-card">
+      <img src="../images/another-icon.png" alt="Nom logiciel">
+      <h3>Nom du Logiciel</h3>
+      <p>Description du logiciel.</p>
+      <a class="download-btn" href="../logiciels/fichier.zip" download>Télécharger</a>
+    </div>
+    -->
+  </section>
+</body>
+</html>
