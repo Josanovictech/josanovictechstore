@@ -4,88 +4,102 @@
   <meta charset="UTF-8">
   <title>Accessoires PC - JosanovicTech Store</title>
   <style>
-    body { font-family: Arial; margin: 20px; background: #f7f7f7; }
-    h1 { text-align: center; }
-    .products { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
-    .product { background: #fff; border: 1px solid #ccc; border-radius: 10px; padding: 10px; width: 250px; text-align: center; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-    .product img { width: 100%; height: 150px; object-fit: contain; }
-    .price { color: green; font-weight: bold; }
-    .old-price { text-decoration: line-through; color: #888; font-size: 14px; }
-    .cart { background: #fff; padding: 15px; margin-top: 30px; border-radius: 10px; width: 100%; max-width: 700px; margin: 30px auto; box-shadow: 0 0 15px rgba(0,0,0,0.1); }
-    .cart h2 { margin-bottom: 10px; }
-    .cart-item { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #eee; }
-    .cart-total { text-align: right; font-size: 18px; font-weight: bold; }
-    button { background-color: #007bff; color: white; border: none; padding: 8px 12px; border-radius: 6px; cursor: pointer; }
-    button:hover { background-color: #0056b3; }
+    body { font-family: Arial, sans-serif; margin: 20px; background: #f7f7f7; }
+    h1 { text-align: center; color: #222; }
+    .product { border: 1px solid #ddd; padding: 10px; margin: 10px; background: white; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);}
+    .product h2 { font-size: 18px; margin: 0 0 10px; }
+    .product .price { color: green; font-weight: bold; }
+    .product .old-price { text-decoration: line-through; color: red; font-size: 14px; margin-left: 10px; }
+    button { padding: 8px 12px; background: #00aaff; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    button:hover { background: #0088cc; }
+    #cart { background: #fff; padding: 10px; border-radius: 8px; margin-top: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);}
+    #cart ul { list-style: none; padding: 0; }
+    #cart li { margin: 5px 0; display: flex; justify-content: space-between; }
+    #cart-total { font-size: 18px; font-weight: bold; margin-top: 10px; }
+    .remove-btn { background: red; margin-left: 10px; }
+    .notification { color: green; margin-top: 10px; }
   </style>
 </head>
 <body>
 
 <h1>Accessoires PC</h1>
 
-<div class="products" id="product-list">
-  <!-- Exemple d'accessoire -->
-  <div class="product">
-    <img src="https://via.placeholder.com/200x150.png?text=RAM+8Go" alt="RAM 8Go">
-    <h3>RAM DDR4 8Go</h3>
-    <p><span class="old-price">40$</span> <span class="price">30$</span></p>
-    <button onclick="addToCart('RAM DDR4 8Go', 30)">Ajouter au panier</button>
+<div class="product">
+  <h2>Disque Dur 500GB</h2>
+  <div>
+    <span class="price">30$</span>
+    <span class="old-price">40$</span>
   </div>
-
-  <div class="product">
-    <img src="https://via.placeholder.com/200x150.png?text=Disque+SSD+256Go" alt="SSD">
-    <h3>Disque SSD 256Go</h3>
-    <p><span class="old-price">50$</span> <span class="price">38$</span></p>
-    <button onclick="addToCart('Disque SSD 256Go', 38)">Ajouter au panier</button>
-  </div>
-
-  <div class="product">
-    <img src="https://via.placeholder.com/200x150.png?text=Clavier+RGB" alt="Clavier RGB">
-    <h3>Clavier RGB Gamer</h3>
-    <p><span class="old-price">30$</span> <span class="price">25$</span></p>
-    <button onclick="addToCart('Clavier RGB Gamer', 25)">Ajouter au panier</button>
-  </div>
+  <button onclick="addToCart('Disque Dur 500GB', 30)">Ajouter au panier</button>
 </div>
 
-<!-- Panier -->
-<div class="cart">
-  <h2>🛒 Panier</h2>
-  <div id="cart-items"></div>
-  <p class="cart-total">Total : <span id="cart-total">0$</span></p>
+<div class="product">
+  <h2>RAM 8GB DDR4</h2>
+  <div>
+    <span class="price">25$</span>
+    <span class="old-price">35$</span>
+  </div>
+  <button onclick="addToCart('RAM 8GB DDR4', 25)">Ajouter au panier</button>
+</div>
+
+<div class="product">
+  <h2>Adaptateur HDMI</h2>
+  <div>
+    <span class="price">10$</span>
+    <span class="old-price">15$</span>
+  </div>
+  <button onclick="addToCart('Adaptateur HDMI', 10)">Ajouter au panier</button>
+</div>
+
+<hr>
+
+<div id="cart">
+  <h2>Panier</h2>
+  <ul id="cart-items"></ul>
+  <div id="cart-total">Total: $0</div>
+  <button onclick="commanderWhatsApp()">Passer la commande</button>
+  <div id="notif" class="notification"></div>
 </div>
 
 <script>
-  let cart = [];
-
-  function addToCart(product, price) {
-    const existing = cart.find(item => item.name === product);
-    if (existing) {
-      existing.qty += 1;
-    } else {
-      cart.push({ name: product, price: price, qty: 1 });
-    }
-    updateCart();
+  const cart = [];
+  function addToCart(nom, prix) {
+    cart.push({ nom, prix });
+    renderCart();
   }
 
-  function removeFromCart(index) {
+  function removeItem(index) {
     cart.splice(index, 1);
-    updateCart();
+    renderCart();
   }
 
-  function updateCart() {
-    const cartItemsDiv = document.getElementById("cart-items");
-    const totalSpan = document.getElementById("cart-total");
-    cartItemsDiv.innerHTML = "";
+  function renderCart() {
+    const cartItems = document.getElementById('cart-items');
+    const cartTotal = document.getElementById('cart-total');
+    cartItems.innerHTML = '';
     let total = 0;
-    cart.forEach((item, index) => {
-      total += item.price * item.qty;
-      cartItemsDiv.innerHTML += `
-        <div class="cart-item">
-          <span>${item.name} x${item.qty}</span>
-          <span>${item.price * item.qty}$ <button onclick="removeFromCart(${index})">Supprimer</button></span>
-        </div>`;
+    cart.forEach((item, i) => {
+      total += item.prix;
+      cartItems.innerHTML += `
+        <li>${item.nom} - $${item.prix}
+          <button class="remove-btn" onclick="removeItem(${i})">Supprimer</button>
+        </li>`;
     });
-    totalSpan.textContent = total + "$";
+    cartTotal.innerText = `Total: $${total}`;
+  }
+
+  function commanderWhatsApp() {
+    if (cart.length === 0) return alert("Votre panier est vide !");
+    let message = "Nouvelle commande JosanovicTech Store:%0A";
+    cart.forEach(item => {
+      message += `- ${item.nom}: $${item.prix}%0A`;
+    });
+    const total = cart.reduce((sum, item) => sum + item.prix, 0);
+    message += `%0ATotal: $${total}%0AClient: Merci de préparer ma commande.`;
+    const numero = "243895463581"; // Ton numéro WhatsApp ici
+    const url = `https://wa.me/${numero}?text=${message}`;
+    window.open(url, "_blank");
+    document.getElementById('notif').innerText = "Votre commande a été envoyée. Vous serez servi après paiement.";
   }
 </script>
 
