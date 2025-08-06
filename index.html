@@ -7,6 +7,44 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" href="favicon.ico">
   <style>
+    <section id="mdm" class="p-6 bg-white rounded-lg shadow mt-10 max-w-3xl mx-auto">
+  <h2 class="text-2xl font-bold mb-4">Télécharger les fichiers MDM</h2>
+
+  <form onsubmit="return handleMDMDownload(event)" class="bg-gray-100 p-4 rounded shadow">
+    <label class="block mb-2 font-semibold">Adresse Email :</label>
+    <input type="email" id="userEmail" required class="p-2 w-full rounded border mb-4" placeholder="ex: nom@email.com">
+
+    <label class="block mb-2 font-semibold">Choisir un fichier :</label>
+    <select id="mdmFile" class="p-2 w-full rounded border mb-4">
+      <option value="samsung-a10-mdm-bypass.zip">Bypass MDM - Samsung A10</option>
+      <option value="tecno-spark10-mdm-bypass.zip">Bypass MDM - Tecno Spark 10</option>
+      <option value="infinix-note12-mdm.zip">Bypass MDM - Infinix Note 12</option>
+    </select>
+
+    <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Télécharger</button>
+  </form>
+
+  <p id="downloadMessage" class="mt-4 text-green-700 font-semibold hidden">Téléchargement en cours...</p>
+</section>
+
+<script>
+  function handleMDMDownload(e) {
+    e.preventDefault();
+    const email = document.getElementById("userEmail").value;
+    const file = document.getElementById("mdmFile").value;
+    const baseUrl = "https://josanovictech.github.io/josanovictechstore/mdm-files/";
+
+    if (email.trim() !== "") {
+      document.getElementById("downloadMessage").classList.remove("hidden");
+      setTimeout(() => {
+        window.location.href = baseUrl + file;
+      }, 1000);
+    }
+
+    return false;
+  }
+</script>
+
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
