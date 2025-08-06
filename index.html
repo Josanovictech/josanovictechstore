@@ -83,25 +83,28 @@
       background-color: #1b263b;
       color: white;
     }
-    .whatsapp-float {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 100;
-    }
-    .whatsapp-float img {
-      width: 60px;
-      height: 60px;
-}
-.telegram-button {
+   .whatsapp-button, .telegram-button {
   display: inline-block;
-  padding: 10px 20px;
-  background-color: #229ED9;
+  padding: 12px 24px;
+  font-size: 16px;
   color: white;
-  border-radius: 5px;
+  border: none;
+  border-radius: 8px;
   text-decoration: none;
-  margin-top: 10px;
+  margin: 5px;
   transition: background-color 0.3s;
+}
+
+.whatsapp-button {
+  background-color: #25D366;
+}
+
+.whatsapp-button:hover {
+  background-color: #1ebe5d;
+}
+
+.telegram-button {
+  background-color: #229ED9;
 }
 
 .telegram-button:hover {
@@ -165,12 +168,11 @@
     <p>&copy; 2025 JosanovicTech. Tous droits réservés.</p>
   </footer>
 
-  <!-- Lien WhatsApp flottant -->
-  <a href="https://wa.me/243999160981" class="whatsapp-float" target="_blank" title="Discuter sur WhatsApp">
-    <img src="https://i10.tvoysad.ru/2025/08/06/wtpb1b297578e3a1fee.jpg" alt="WhatsApp">
- <!-- Lien telegramme flottant -->
-  <a href="https://t.me/Josanovic" class="telegramme-float" target="_blank" title="Discuter sur telegramme">
-    <img src="https://i11.tvoysad.ru/2025/08/06/Telegram_logo.svgcee6446b06e398fe.webp" alt="telegramme">
+ <div style="text-align: center; margin-top: 20px;">
+  <a href="https://wa.me/243999160981" target="_blank" class="whatsapp-button">Commander via WhatsApp</a>
+  <br><br>
+  <a href="https://t.me/@Josanovic" target="_blank" class="telegram-button">Nous contacter sur Telegram</a>
+</div>
 
   </a>
 </body>
