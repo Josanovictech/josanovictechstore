@@ -1,22 +1,160 @@
-<form onsubmit="return handleMDMDownload(event)" class="p-4 bg-gray-100 rounded mt-6">
-  <label class="block mb-2 font-semibold">Email :</label>
-  <input type="email" id="userEmail" required class="p-2 w-full rounded border mb-4">
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fichiers MDM - JosanovicTech Store</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
 
-  <label class="block mb-2 font-semibold">Choisir un fichier :</label>
-  <select id="mdmFile" class="p-2 w-full rounded border mb-4">
-    <option value="samsung-a10-mdm-bypass.zip">Samsung A10</option>
-    <option value="tecno-spark10-mdm-bypass.zip">Tecno Spark 10</option>
-  </select>
+    header {
+      background-color: #0a0a23;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
 
-  <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Télécharger</button>
-</form>
+    h1 {
+      margin: 0;
+      font-size: 28px;
+    }
 
-<script>
-  function handleMDMDownload(e) {
-    e.preventDefault();
-    const file = document.getElementById("mdmFile").value;
-    const base = "https://josanovictech.github.io/josanovictechstore/mdm-files/";
-    window.location.href = base + file;
-    return false;
-  }
-</script>
+    .container {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+
+    h2 {
+      color: #0a0a23;
+      margin-top: 40px;
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 5px;
+    }
+
+    .file-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .file-card {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      text-align: center;
+      width: calc(50% - 20px);
+    }
+
+    .file-card h3 {
+      margin: 10px 0;
+      font-size: 18px;
+      color: #222;
+    }
+
+    .download-btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 15px;
+      background-color: #0a0a23;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .download-btn:hover {
+      background-color: #1a1a3c;
+    }
+
+    @media (max-width: 600px) {
+      .file-card {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Fichiers MDM</h1>
+    <p>Téléchargez les fichiers MDM classés par marque</p>
+  </header>
+
+  <div class="container">
+
+    <!-- SAMSUNG -->
+    <h2>Samsung</h2>
+    <div class="file-list">
+      <div class="file-card">
+        <h3>Samsung A12</h3>
+        <a href="../fichier_mdm/mdm_samsung_a12.zip" class="download-btn" download>Télécharger</a>
+      </div>
+      <div class="file-card">
+        <h3>Samsung A32</h3>
+        <a href="../fichier_mdm/mdm_samsung_a32.zip" class="download-btn" download>Télécharger</a>
+      </div>
+    </div>
+
+    <!-- INFINIX -->
+    <h2>Infinix</h2>
+    <div class="file-list">
+      <div class="file-card">
+        <h3>Infinix X657</h3>
+        <a href="../fichier_mdm/mdm_infinix_x657.zip" class="download-btn" download>Télécharger</a>
+      </div>
+      <div class="file-card">
+        <h3>Infinix Note 8</h3>
+        <a href="../fichier_mdm/mdm_infinix_note8.zip" class="download-btn" download>Télécharger</a>
+      </div>
+    </div>
+
+    <!-- TECNO -->
+    <h2>Tecno</h2>
+    <div class="file-list">
+      <div class="file-card">
+        <h3>Camon 18</h3>
+        <a href="../fichier_mdm/mdm_tecno_camon18.zip" class="download-btn" download>Télécharger</a>
+      </div>
+      <div class="file-card">
+        <h3>Pop 5</h3>
+        <a href="../fichier_mdm/mdm_tecno_pop5.zip" class="download-btn" download>Télécharger</a>
+      </div>
+    </div>
+
+    <!-- ITEL -->
+    <h2>Itel</h2>
+    <div class="file-list">
+      <div class="file-card">
+        <h3>Itel A36</h3>
+        <a href="../fichier_mdm/mdm_itel_a36.zip" class="download-btn" download>Télécharger</a>
+      </div>
+      <div class="file-card">
+        <h3>Itel S15</h3>
+        <a href="../fichier_mdm/mdm_itel_s15.zip" class="download-btn" download>Télécharger</a>
+      </div>
+    </div>
+
+    <!-- NOKIA -->
+    <h2>Nokia</h2>
+    <div class="file-list">
+      <div class="file-card">
+        <h3>Nokia C1</h3>
+        <a href="../fichier_mdm/mdm_nokia_c1.zip" class="download-btn" download>Télécharger</a>
+      </div>
+      <div class="file-card">
+        <h3>Nokia 2.3</h3>
+        <a href="../fichier_mdm/mdm_nokia_2_3.zip" class="download-btn" download>Télécharger</a>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
