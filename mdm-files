@@ -1,0 +1,22 @@
+<form onsubmit="return handleMDMDownload(event)" class="p-4 bg-gray-100 rounded mt-6">
+  <label class="block mb-2 font-semibold">Email :</label>
+  <input type="email" id="userEmail" required class="p-2 w-full rounded border mb-4">
+
+  <label class="block mb-2 font-semibold">Choisir un fichier :</label>
+  <select id="mdmFile" class="p-2 w-full rounded border mb-4">
+    <option value="samsung-a10-mdm-bypass.zip">Samsung A10</option>
+    <option value="tecno-spark10-mdm-bypass.zip">Tecno Spark 10</option>
+  </select>
+
+  <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Télécharger</button>
+</form>
+
+<script>
+  function handleMDMDownload(e) {
+    e.preventDefault();
+    const file = document.getElementById("mdmFile").value;
+    const base = "https://josanovictech.github.io/josanovictechstore/mdm-files/";
+    window.location.href = base + file;
+    return false;
+  }
+</script>
