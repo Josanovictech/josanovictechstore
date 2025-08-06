@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact - JosanovicTech Store</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f2f2f2;
+      color: #333;
+    }
+    header {
+      background-color: #0a3d62;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    .container {
+      max-width: 800px;
+      margin: 30px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #0a3d62;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    input, textarea {
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+    button {
+      padding: 12px;
+      background-color: #0a3d62;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #07528e;
+    }
+    .contact-info {
+      margin-top: 30px;
+    }
+    .contact-info p {
+      margin: 10px 0;
+    }
+    .contact-info img {
+      vertical-align: middle;
+      width: 20px;
+      margin-right: 8px;
+    }
+    footer {
+      text-align: center;
+      padding: 15px;
+      background-color: #0a3d62;
+      color: white;
+      margin-top: 40px;
+    }
+    @media screen and (max-width: 600px) {
+      .container {
+        margin: 10px;
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h2>Contactez JosanovicTech Store</h2>
+</header>
+
+<div class="container">
+  <h1>Envoyez-nous un message</h1>
+  <form action="mailto:josanovictech@gmail.com" method="post" enctype="text/plain">
+    <input type="text" name="Nom" placeholder="Votre nom" required>
+    <input type="email" name="Email" placeholder="Votre adresse email" required>
+    <textarea name="Message" rows="5" placeholder="Votre message..." required></textarea>
+    <button type="submit">Envoyer le message</button>
+  </form>
+
+  <div class="contact-info">
+    <h2>Ou contactez-nous directement :</h2>
+    <p><img src="https://i11.tvoysad.ru/2025/08/07/whatsapp-logo-png_seeklogo-16831013cb7981a8b26c0b.png"/> <a href="https://wa.me/243999160981" target="_blank">WhatsApp</a></p>
+    <p><img src="https://i11.tvoysad.ru/2025/08/06/Telegram_logo.svgcee6446b06e398fe.webp"/> <a href="https://t.me/josanovic" target="_blank">Telegram</a></p>
+    <p><img src="https://i10.tvoysad.ru/2025/08/07/4202011emailgmaillogomailsocialsocialmedia-115677_1156241d4a6547e86a10ac.png"/> <a href="mailto:josanovictech@gmail.com">josanovictech@gmail.com</a></p>
+  </div>
+</div>
+
+<footer>
+  &copy; 2025 JosanovicTech Store. Tous droits réservés.
+</footer>
+
+</body>
+</html>
