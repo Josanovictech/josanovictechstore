@@ -2,116 +2,118 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Commande | JosanovicTech Store</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Accessoires PC - JosanovicTech Store</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 20px;
-      background-color: #f2f2f2;
-    }
-    h2, h3 {
-      color: #333;
-    }
-    #panier, #commande-form {
-      background-color: #fff;
-      padding: 20px;
-      margin-bottom: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 8px rgba(0,0,0,0.1);
-    }
-    input[type="text"], input[type="tel"] {
-      padding: 10px;
-      width: 100%;
-      margin-bottom: 15px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-    }
-    button {
-      padding: 12px 20px;
-      background-color: #25D366;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-    button:hover {
-      background-color: #1ebd5a;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-    }
-    li {
-      padding: 5px 0;
-    }
+    body { font-family: Arial; margin: 20px; }
+    .product { border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; }
+    .product img { width: 100px; }
+    .product-info { flex: 1; margin-left: 20px; }
+    .price { font-weight: bold; color: green; }
+    .old-price { text-decoration: line-through; color: #999; margin-left: 10px; }
+    .cart { border: 2px solid #444; padding: 10px; margin-top: 30px; }
+    #confirmation { color: green; font-weight: bold; margin-top: 10px; }
+    button { padding: 5px 10px; background: green; color: white; border: none; cursor: pointer; }
+    input[type="text"] { padding: 5px; width: 100%; margin: 5px 0; }
   </style>
 </head>
 <body>
 
-  <h2>Finaliser votre commande</h2>
+  <h1>Accessoires PC</h1>
 
-  <!-- Panier affiché -->
-  <div id="panier"></div>
+  <!-- Liste des produits -->
+  <div class="product">
+    <img src="images/ram.jpg" alt="RAM 8GB">
+    <div class="product-info">
+      <h3>RAM 8GB DDR4</h3>
+      <span class="price">25$</span>
+      <span class="old-price">35$</span><br>
+      <button onclick="addToCart('RAM 8GB DDR4', 25)">Ajouter au panier</button>
+    </div>
+  </div>
 
-  <!-- Formulaire d'informations client -->
-  <div id="commande-form">
-    <h3>Informations du client</h3>
-    <input type="text" id="nomClient" placeholder="Votre nom complet" required>
-    <input type="tel" id="numeroClient" placeholder="Votre numéro WhatsApp" required>
-    <button onclick="envoyerCommande()">Passer la commande via WhatsApp</button>
+  <div class="product">
+    <img src="images/adaptateur.jpg" alt="Adaptateur USB">
+    <div class="product-info">
+      <h3>Adaptateur USB-C</h3>
+      <span class="price">10$</span>
+      <span class="old-price">15$</span><br>
+      <button onclick="addToCart('Adaptateur USB-C', 10)">Ajouter au panier</button>
+    </div>
+  </div>
+
+  <div class="product">
+    <img src="images/clavier.jpg" alt="Clavier USB">
+    <div class="product-info">
+      <h3>Clavier USB</h3>
+      <span class="price">12$</span>
+      <span class="old-price">18$</span><br>
+      <button onclick="addToCart('Clavier USB', 12)">Ajouter au panier</button>
+    </div>
+  </div>
+
+  <!-- Panier -->
+  <div class="cart">
+    <h2>🛒 Panier</h2>
+    <ul id="cartList"></ul>
+    <p>Total: <strong id="total">0$</strong></p>
+
+    <h3>Valider la commande</h3>
+    <input type="text" id="clientName" placeholder="Votre nom complet">
+    <input type="text" id="clientPhone" placeholder="Votre numéro de téléphone">
+    <button onclick="sendOrder()">📦 Passer la commande</button>
+    <div id="confirmation"></div>
   </div>
 
   <script>
-    // EXEMPLE : produits dans le panier (à remplacer par ton système réel)
-    const panier = [
-      { nom: "Fichier MDM Samsung", prix: 5, quantite: 1 },
-      { nom: "Clavier USB HP", prix: 15, quantite: 2 }
-    ];
+    const cart = [];
 
-    // Affichage dynamique du panier
-    function afficherPanier() {
-      let html = "<h3>Votre Panier</h3><ul>";
-      let total = 0;
-      panier.forEach(item => {
-        html += `<li>${item.nom} x ${item.quantite} - ${item.prix * item.quantite} $</li>`;
-        total += item.prix * item.quantite;
-      });
-      html += `</ul><p><strong>Total : ${total} $</strong></p>`;
-      document.getElementById("panier").innerHTML = html;
+    function addToCart(product, price) {
+      cart.push({ product, price });
+      updateCart();
     }
 
-    afficherPanier();
+    function updateCart() {
+      const cartList = document.getElementById("cartList");
+      const totalElement = document.getElementById("total");
+      cartList.innerHTML = "";
+      let total = 0;
+      cart.forEach((item, index) => {
+        total += item.price;
+        cartList.innerHTML += `<li>${item.product} - ${item.price}$ <button onclick="removeItem(${index})">Supprimer</button></li>`;
+      });
+      totalElement.textContent = total + "$";
+    }
 
-    // Fonction d'envoi vers WhatsApp
-    function envoyerCommande() {
-      const nom = document.getElementById("nomClient").value.trim();
-      const numero = document.getElementById("numeroClient").value.trim();
+    function removeItem(index) {
+      cart.splice(index, 1);
+      updateCart();
+    }
 
-      if (nom === "" || numero === "") {
-        alert("Veuillez remplir votre nom et numéro.");
+    function sendOrder() {
+      const name = document.getElementById("clientName").value;
+      const phone = document.getElementById("clientPhone").value;
+
+      if (!name || !phone) {
+        alert("Veuillez entrer votre nom et numéro.");
         return;
       }
 
-      let message = `📦 Nouvelle commande JosanovicTech Store%0A`;
-      message += `👤 Client : ${nom}%0A📞 Téléphone : ${numero}%0A`;
-      message += `🛒 Produits commandés :%0A`;
+      let message = `*Nouvelle commande JosanovicTech Store*%0A👤 Client: ${name}%0A📞 Téléphone: ${phone}%0A🧾 Commande:%0A`;
 
       let total = 0;
-      panier.forEach(item => {
-        message += `- ${item.nom} x ${item.quantite} = ${item.prix * item.quantite} $%0A`;
-        total += item.prix * item.quantite;
+      cart.forEach(item => {
+        message += `- ${item.product} : ${item.price}$%0A`;
+        total += item.price;
       });
 
-      message += `💰 Total à payer : ${total} $%0A`;
-      message += `✅ Merci ! Veuillez confirmer la commande.`
+      message += `💰 Total: ${total}$%0A🕐 Le client sera servi après paiement.`;
 
-      // Remplacer ici par ton numéro WhatsApp (avec indicatif sans +)
-      const numeroWhatsApp = "243999160981";
-      const lien = `https://wa.me/${numeroWhatsApp}?text=${message}`;
+      const whatsappLink = `https://wa.me/243897654321?text=${message}`; // Remplace par ton numéro WhatsApp
 
-      window.open(lien, "_blank");
+      window.open(whatsappLink, "_blank");
+
+      document.getElementById("confirmation").innerText = "✅ Commande envoyée avec succès. Vous serez servi dans un instant.";
     }
   </script>
 
