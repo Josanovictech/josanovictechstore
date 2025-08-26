@@ -6,46 +6,87 @@
   <title>Logiciels GSM - JosanovicTech Store</title>
   <link rel="stylesheet" href="styles.css">
   <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f6f9;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #0d1b2a;
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+    main {
+      padding: 40px 20px;
+    }
+    .logiciels-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
     .logiciel-card {
       background: #fff;
-      padding: 20px;
-      margin: 15px;
       border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
       text-align: center;
-      max-width: 300px;
-      display: inline-block;
-      vertical-align: top;
+      padding: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .logiciel-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
     }
     .logiciel-card img {
       width: 100%;
       max-height: 180px;
       object-fit: cover;
       border-radius: 8px;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
+    }
+    .logiciel-card h2 {
+      font-size: 1.3em;
+      color: #0d1b2a;
+    }
+    .logiciel-card p {
+      font-size: 0.95em;
+      color: #444;
+      margin: 10px 0;
     }
     .prix {
-      margin: 10px 0;
       font-size: 1.2em;
+      margin: 12px 0;
     }
     .prix s {
-      color: red;
-      margin-right: 10px;
+      color: #c00;
+      margin-right: 8px;
     }
     .btn-commande {
       display: inline-block;
-      padding: 10px 20px;
-      margin-top: 10px;
-      background-color: #28a745;
-      color: #fff;
-      border-radius: 8px;
+      background: #f77f00;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 25px;
       text-decoration: none;
-      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s ease;
     }
     .btn-commande:hover {
-      background-color: #1e7e34;
+      background: #d35d00;
     }
-    /* Popup Form */
+    footer {
+      background: #0d1b2a;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+    /* Popup */
     .popup {
       display: none;
       position: fixed;
@@ -58,14 +99,19 @@
     .popup-content {
       background: #fff;
       padding: 20px;
-      border-radius: 10px;
-      width: 300px;
+      border-radius: 12px;
+      width: 320px;
       text-align: center;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    }
+    .popup-content h3 {
+      margin-bottom: 10px;
+      color: #0d1b2a;
     }
     .popup-content input {
       width: 90%;
-      padding: 8px;
-      margin: 8px 0;
+      padding: 10px;
+      margin: 10px 0;
       border-radius: 6px;
       border: 1px solid #ccc;
     }
@@ -74,9 +120,10 @@
       color: white;
       border: none;
       padding: 10px;
-      border-radius: 8px;
+      border-radius: 25px;
       cursor: pointer;
       width: 100%;
+      font-weight: bold;
     }
     .popup-content button:hover {
       background: #005fa3;
@@ -85,33 +132,36 @@
 </head>
 <body>
   <header>
-    <h1>Logiciels GSM</h1>
+    <h1>Nos Logiciels GSM</h1>
+    <p>Découvrez et commandez nos meilleurs outils pour le déblocage et la maintenance</p>
   </header>
 
   <main>
-    <!-- Exemple logiciel -->
-    <div class="logiciel-card">
-      <img src="images/logiciels/unlock-pro.jpg" alt="JosanovicTech Unlock PRO">
-      <h2>JosanovicTech Unlock PRO</h2>
-      <p>Outil avancé pour FRP, Flash et déblocage multimarques.</p>
-      <div class="prix"><s>50$</s> <strong>29$</strong></div>
-      <button class="btn-commande" onclick="openPopup('JosanovicTech Unlock PRO', '29$')">Passer la commande</button>
-    </div>
+    <div class="logiciels-grid">
+      <!-- Exemple logiciel -->
+      <div class="logiciel-card">
+        <img src="images/logiciels/unlock-pro.jpg" alt="JosanovicTech Unlock PRO">
+        <h2>JosanovicTech Unlock PRO</h2>
+        <p>Outil avancé pour FRP, Flash et déblocage multimarques.</p>
+        <div class="prix"><s>50$</s> <strong>29$</strong></div>
+        <button class="btn-commande" onclick="openPopup('JosanovicTech Unlock PRO', '29$')">Passer la commande</button>
+      </div>
 
-    <div class="logiciel-card">
-      <img src="images/logiciels/samsung-frp.jpg" alt="Samsung FRP Tool">
-      <h2>Samsung FRP Tool</h2>
-      <p>Contournement rapide du FRP sur les modèles Samsung récents.</p>
-      <div class="prix"><s>40$</s> <strong>19$</strong></div>
-      <button class="btn-commande" onclick="openPopup('Samsung FRP Tool', '19$')">Passer la commande</button>
-    </div>
+      <div class="logiciel-card">
+        <img src="images/logiciels/samsung-frp.jpg" alt="Samsung FRP Tool">
+        <h2>Samsung FRP Tool</h2>
+        <p>Contournement rapide du FRP sur les modèles Samsung récents.</p>
+        <div class="prix"><s>40$</s> <strong>19$</strong></div>
+        <button class="btn-commande" onclick="openPopup('Samsung FRP Tool', '19$')">Passer la commande</button>
+      </div>
 
-    <div class="logiciel-card">
-      <img src="images/logiciels/infinix-tecno.jpg" alt="Infinix & Tecno Flash Tool">
-      <h2>Infinix & Tecno Flash Tool</h2>
-      <p>Outil officiel pour flasher et réinstaller les firmwares.</p>
-      <div class="prix"><s>30$</s> <strong>15$</strong></div>
-      <button class="btn-commande" onclick="openPopup('Infinix & Tecno Flash Tool', '15$')">Passer la commande</button>
+      <div class="logiciel-card">
+        <img src="images/logiciels/infinix-tecno.jpg" alt="Infinix & Tecno Flash Tool">
+        <h2>Infinix & Tecno Flash Tool</h2>
+        <p>Outil officiel pour flasher et réinstaller les firmwares.</p>
+        <div class="prix"><s>30$</s> <strong>15$</strong></div>
+        <button class="btn-commande" onclick="openPopup('Infinix & Tecno Flash Tool', '15$')">Passer la commande</button>
+      </div>
     </div>
   </main>
 
@@ -155,7 +205,6 @@
                     "Nom: " + nom + "%0A" +
                     "Téléphone: " + tel;
 
-      // Ton numéro WhatsApp ici (format international ex: 243899999999)
       window.open("https://wa.me/243899999999?text=" + message, "_blank");
 
       document.getElementById("popupForm").style.display = "none";
