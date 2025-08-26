@@ -6,117 +6,139 @@
   <title>Fichiers MDM - JosanovicTech Store</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      padding: 20px;
-      background: #f4f4f4;
-    }
-    h1 {
-      text-align: center;
-      color: #333;
-    }
-    .category {
-      background: white;
-      padding: 15px;
-      border-radius: 10px;
-      margin-bottom: 20px;
-      box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
-    }
-    .category h2 {
-      color: #0d1b2a;
-    }
-    ul {
-      list-style: none;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f6f9;
+      margin: 0;
       padding: 0;
     }
-    li {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 8px 0;
-      border-bottom: 1px solid #ddd;
-    }
-    button {
-      background: #28a745;
+    header {
+      background: #0d1b2a;
       color: white;
-      padding: 6px 12px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
+      text-align: center;
+      padding: 40px 20px;
     }
-    button:hover {
-      background: #218838;
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+    main {
+      padding: 40px 20px;
+    }
+    .marque-section {
+      margin-bottom: 50px;
+    }
+    .marque-section h2 {
+      color: #0d1b2a;
+      border-left: 6px solid #f77f00;
+      padding-left: 10px;
+      margin-bottom: 20px;
+    }
+    .fichiers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    .fichier-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+      text-align: center;
+      padding: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .fichier-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    }
+    .fichier-card h3 {
+      font-size: 1.2em;
+      margin-bottom: 10px;
+      color: #0d1b2a;
+    }
+    .btn-download {
+      display: inline-block;
+      background: #f77f00;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+    .btn-download:hover {
+      background: #d35d00;
     }
   </style>
 </head>
 <body>
+  <header>
+    <h1>Fichiers MDM</h1>
+    <p>Téléchargez les fichiers MDM par marque</p>
+  </header>
 
-<h1>📁 Téléchargement des Fichiers MDM</h1>
+  <main>
+    <!-- Samsung -->
+    <div class="marque-section">
+      <h2>Samsung</h2>
+      <div class="fichiers-grid">
+        <div class="fichier-card">
+          <h3>Samsung A12 MDM Bypass</h3>
+          <a href="fichiers-mdm/samsung-a12-mdm.zip" class="btn-download">Télécharger</a>
+        </div>
+        <div class="fichier-card">
+          <h3>Samsung S10 MDM Bypass</h3>
+          <a href="fichiers-mdm/samsung-s10-mdm.zip" class="btn-download">Télécharger</a>
+        </div>
+      </div>
+    </div>
 
-<div class="category">
-  <h2>📱 Samsung</h2>
-  <ul>
-    <li>
-      Samsung A10 MDM Bypass
-      <a href="fichiers-mdm/samsung-a10.zip" download>
-        <button>Télécharger</button>
-      </a>
-    </li>
-    <li>
-      Samsung A12 MDM Bypass
-      <a href="fichiers-mdm/samsung-a12.zip" download>
-        <button>Télécharger</button>
-      </a>
-    </li>
-  </ul>
-</div>
+    <!-- Tecno -->
+    <div class="marque-section">
+      <h2>Tecno</h2>
+      <div class="fichiers-grid">
+        <div class="fichier-card">
+          <h3>Tecno Spark 7 MDM Bypass</h3>
+          <a href="fichiers-mdm/tecno-spark7-mdm.zip" class="btn-download">Télécharger</a>
+        </div>
+      </div>
+    </div>
 
-<div class="category">
-  <h2>📱 Tecno</h2>
-  <ul>
-    <li>
-      Tecno Spark 10 MDM Bypass
-      <a href="fichiers-mdm/tecno-spark10.zip" download>
-        <button>Télécharger</button>
-      </a>
-    </li>
-  </ul>
-</div>
+    <!-- Infinix -->
+    <div class="marque-section">
+      <h2>Infinix</h2>
+      <div class="fichiers-grid">
+        <div class="fichier-card">
+          <h3>Infinix Hot 10 MDM Bypass</h3>
+          <a href="fichiers-mdm/infinix-hot10-mdm.zip" class="btn-download">Télécharger</a>
+        </div>
+      </div>
+    </div>
 
-<div class="category">
-  <h2>📱 Infinix</h2>
-  <ul>
-    <li>
-      Infinix Hot 12 MDM Bypass
-      <a href="fichiers-mdm/infinix-hot12.zip" download>
-        <button>Télécharger</button>
-      </a>
-    </li>
-  </ul>
-</div>
+    <!-- Itel -->
+    <div class="marque-section">
+      <h2>Itel</h2>
+      <div class="fichiers-grid">
+        <div class="fichier-card">
+          <h3>Itel A56 MDM Bypass</h3>
+          <a href="fichiers-mdm/itel-a56-mdm.zip" class="btn-download">Télécharger</a>
+        </div>
+      </div>
+    </div>
 
-<div class="category">
-  <h2>📱 Itel</h2>
-  <ul>
-    <li>
-      Itel S16 MDM Bypass
-      <a href="fichiers-mdm/itel-s16.zip" download>
-        <button>Télécharger</button>
-      </a>
-    </li>
-  </ul>
-</div>
+    <!-- Nokia -->
+    <div class="marque-section">
+      <h2>Nokia</h2>
+      <div class="fichiers-grid">
+        <div class="fichier-card">
+          <h3>Nokia 2.3 MDM Bypass</h3>
+          <a href="fichiers-mdm/nokia-2.3-mdm.zip" class="btn-download">Télécharger</a>
+        </div>
+      </div>
+    </div>
+  </main>
 
-<div class="category">
-  <h2>📱 Nokia</h2>
-  <ul>
-    <li>
-      Nokia C1 MDM Bypass
-      <a href="fichiers-mdm/nokia-c1.zip" download>
-        <button>Télécharger</button>
-      </a>
-    </li>
-  </ul>
-</div>
-
+  <footer>
+    <p>&copy; 2025 JosanovicTech Store - Tous droits réservés.</p>
+  </footer>
 </body>
 </html>
