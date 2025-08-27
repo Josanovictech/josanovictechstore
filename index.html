@@ -48,6 +48,7 @@
       text-decoration: none;
       font-weight: bold;
     }
+    /* Barre de recherche */
     .search-bar {
       display: flex;
       justify-content: center;
@@ -104,60 +105,6 @@
       background-color: #1b263b;
       color: white;
     }
-    .avis, .newsletter {
-      padding: 40px 20px;
-      text-align: center;
-      background: #fff;
-      margin: 20px 0;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-    .avis h2, .newsletter h2 {
-      margin-bottom: 20px;
-      color: #0d1b2a;
-    }
-    .newsletter form {
-      margin-top: 15px;
-    }
-    .newsletter input {
-      padding: 10px;
-      width: 250px;
-      border-radius: 20px;
-      border: 1px solid #ccc;
-      outline: none;
-    }
-    .newsletter button {
-      padding: 10px 20px;
-      border: none;
-      background: #f77f00;
-      color: white;
-      border-radius: 20px;
-      margin-left: 10px;
-      cursor: pointer;
-    }
-    .newsletter button:hover {
-      background: #d35d00;
-    }
-    /* Boutons flottants */
-    .float-buttons {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      z-index: 100;
-    }
-    .float-buttons img {
-      width: 55px;
-      height: 55px;
-      border-radius: 50%;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      transition: transform 0.2s;
-    }
-    .float-buttons img:hover {
-      transform: scale(1.1);
-    }
   </style>
 </head>
 <body>
@@ -178,7 +125,7 @@
     </nav>
   </header>
 
-  <!-- Barre de recherche -->
+  <!-- Barre de recherche ajoutée -->
   <div class="search-bar">
     <input type="text" id="searchInput" placeholder="Rechercher un produit...">
     <button onclick="searchProduct()">🔍</button>
@@ -215,53 +162,11 @@
       <h2>Contact</h2>
       <p>Des questions ? Écrivez-nous à : <a href="mailto:josanovictech@gmail.com">josanovictech@gmail.com</a></p>
     </section>
-
-    <!-- Section Avis Clients -->
-    <section class="avis">
-      <h2>Ce que disent nos clients</h2>
-      <div class="grid">
-        <div class="card">
-          <p>"Service rapide et fichiers fiables. Mon téléphone a été débloqué en quelques minutes !"</p>
-          <strong>- Marc K.</strong>
-        </div>
-        <div class="card">
-          <p>"Boutique très professionnelle, j’ai trouvé exactement le logiciel qu’il me fallait."</p>
-          <strong>- Aline T.</strong>
-        </div>
-        <div class="card">
-          <p>"Excellent support client, ils m’ont aidé pas à pas pour installer mon outil GSM."</p>
-          <strong>- Didier M.</strong>
-        </div>
-      </div>
-    </section>
-
-    <!-- Section Newsletter -->
-    <section class="newsletter">
-      <h2>Abonne-toi à notre newsletter</h2>
-      <p>Reste informé des nouveaux fichiers, logiciels et promos exclusives.</p>
-      <form onsubmit="alert('✅ Merci de vous être abonné à notre newsletter !'); return false;">
-        <input type="email" placeholder="Entrez votre email" required>
-        <button type="submit">S'abonner</button>
-      </form>
-    </section>
   </main>
 
   <footer>
     <p>&copy; 2025 JosanovicTech. Tous droits réservés.</p>
   </footer>
-
-  <!-- Boutons flottants WhatsApp, Telegram et YouTube -->
-  <div class="float-buttons">
-    <a href="https://wa.me/243899999999" target="_blank" title="Discuter sur WhatsApp">
-      <img src="whatsapp-icon.png" alt="WhatsApp">
-    </a>
-    <a href="https://t.me/josanovictech" target="_blank" title="Rejoindre sur Telegram">
-      <img src="telegram-icon.png" alt="Telegram">
-    </a>
-    <a href="https://www.youtube.com/@JosanovicTech" target="_blank" title="Voir notre chaîne YouTube">
-      <img src="youtube-icon.png" alt="YouTube">
-    </a>
-  </div>
 
   <script>
     function searchProduct() {
