@@ -4,147 +4,130 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fichiers MDM - JosanovicTech Store</title>
+  <link rel="stylesheet" href="styles.css">
   <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f4f6f9;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background: #0d1b2a;
-      color: white;
-      text-align: center;
-      padding: 40px 20px;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.5em;
-    }
-    main {
-      padding: 40px 20px;
-    }
-    .marque-section {
-      margin-bottom: 50px;
-    }
-    .marque-section h2 {
-      color: #0d1b2a;
-      border-left: 6px solid #f77f00;
-      padding-left: 10px;
-      margin-bottom: 20px;
-    }
-    .fichiers-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
-    }
-    .fichier-card {
+    body { font-family: Arial, sans-serif; margin: 0; background: #f4f4f4; }
+    header { background: #0d1b2a; padding: 20px; text-align: center; color: #fff; }
+    h1 { margin: 0; }
+    .container { padding: 30px; }
+    .category { margin-bottom: 40px; }
+    .category h2 { background: #1b263b; color: #fff; padding: 10px; border-radius: 6px; }
+    .file-card {
       background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-      text-align: center;
-      padding: 20px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      margin: 10px 0;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
-    .fichier-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-    }
-    .fichier-card h3 {
-      font-size: 1.2em;
-      margin-bottom: 10px;
-      color: #0d1b2a;
-    }
-    .btn-download {
-      display: inline-block;
+    .btn {
+      padding: 8px 16px;
       background: #f77f00;
-      color: white;
-      padding: 10px 18px;
-      border-radius: 25px;
+      color: #fff;
       text-decoration: none;
-      font-weight: bold;
-      transition: background 0.3s ease;
+      border-radius: 20px;
+      transition: background 0.3s;
     }
-    .btn-download:hover {
-      background: #d35d00;
+    .btn:hover { background: #d35d00; }
+    /* Barre de recherche */
+    .search-bar {
+      text-align: center;
+      margin: 20px 0;
+    }
+    .search-bar input {
+      width: 300px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 20px;
+      outline: none;
     }
   </style>
+  <script>
+    function telecharger(nom, lien) {
+      alert("📥 Téléchargement en cours de " + nom + "...\nVeuillez me contacter pour le mot de passe du fichier.");
+      window.open(lien, "_blank");
+    }
+
+    function searchFile() {
+      let input = document.getElementById("searchInput").value.toLowerCase();
+      let files = document.getElementsByClassName("file-card");
+
+      for (let i = 0; i < files.length; i++) {
+        let text = files[i].innerText.toLowerCase();
+        if (text.includes(input)) {
+          files[i].style.display = "flex";
+        } else {
+          files[i].style.display = "none";
+        }
+      }
+    }
+  </script>
 </head>
 <body>
   <header>
     <h1>Fichiers MDM</h1>
-    <p>Téléchargez les fichiers MDM par marque</p>
+    <p>Téléchargez vos fichiers selon la marque</p>
   </header>
 
-  <main>
-    <!-- Samsung -->
-    <div class="marque-section">
-      <h2>Samsung</h2>
-      <div class="fichiers-grid">
-        <div class="fichier-card">
-          <h3>Samsung A12 MDM Bypass</h3>
-          <a href="fichiers-mdm/samsung-a12-mdm.zip" class="btn-download" onclick="alertMsg()">Télécharger</a>
-        </div>
-        <div class="fichier-card">
-          <h3>Samsung S10 MDM Bypass</h3>
-          <a href="fichiers-mdm/samsung-s10-mdm.zip" class="btn-download" onclick="alertMsg()">Télécharger</a>
-        </div>
+  <!-- Barre de recherche -->
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Rechercher un modèle (ex: Samsung A12)" onkeyup="searchFile()">
+  </div>
+
+  <div class="container">
+
+    <div class="category">
+      <h2>📱 Samsung</h2>
+      <div class="file-card">
+        <span>Samsung Galaxy A12 MDM</span>
+        <a href="javascript:void(0)" class="btn"
+           onclick="telecharger('Samsung A12 MDM', 'https://mega.nz/votre-lien-ici')">Télécharger</a>
+      </div>
+      <div class="file-card">
+        <span>Samsung Galaxy S10 MDM</span>
+        <a href="javascript:void(0)" class="btn"
+           onclick="telecharger('Samsung S10 MDM', 'https://drive.google.com/votre-lien-ici')">Télécharger</a>
       </div>
     </div>
 
-    <!-- Tecno -->
-    <div class="marque-section">
-      <h2>Tecno</h2>
-      <div class="fichiers-grid">
-        <div class="fichier-card">
-          <h3>KJ5-H6931ABCDEFGHI-T-OP-241009V1507 MDM Bypass</h3>
-          <a href="fichiers-mdm/KJ5-H6931ABCDEFGHI-T-OP-241009V1507 MDM Bypass-mdm.zip" class="btn-download" onclick="alertMsg()">Télécharger</a>
-        </div>
+    <div class="category">
+      <h2>📱 Tecno</h2>
+      <div class="file-card">
+        <span>Tecno Spark 7 MDM</span>
+        <a href="javascript:void(0)" class="btn"
+           onclick="telecharger('Tecno Spark 7 MDM', 'https://mega.nz/votre-lien-ici')">Télécharger</a>
       </div>
     </div>
 
-    <!-- Infinix -->
-    <div class="marque-section">
-      <h2>Infinix</h2>
-      <div class="fichiers-grid">
-        <div class="fichier-card">
-          <h3>Infinix Hot 10 MDM Bypass</h3>
-          <a href="fichiers-mdm/infinix-hot10-mdm.zip" class="btn-download" onclick="alertMsg()">Télécharger</a>
-        </div>
+    <div class="category">
+      <h2>📱 Infinix</h2>
+      <div class="file-card">
+        <span>Infinix Hot 10 MDM</span>
+        <a href="javascript:void(0)" class="btn"
+           onclick="telecharger('Infinix Hot 10 MDM', 'https://drive.google.com/votre-lien-ici')">Télécharger</a>
       </div>
     </div>
 
-    <!-- Itel -->
-    <div class="marque-section">
-      <h2>Itel</h2>
-      <div class="fichiers-grid">
-        <div class="fichier-card">
-          <h3>Itel A56 MDM Bypass</h3>
-          <a href="fichiers-mdm/itel-a56-mdm.zip" class="btn-download" onclick="alertMsg()">Télécharger</a>
-        </div>
+    <div class="category">
+      <h2>📱 Itel</h2>
+      <div class="file-card">
+        <span>Itel A56 MDM</span>
+        <a href="javascript:void(0)" class="btn"
+           onclick="telecharger('Itel A56 MDM', 'https://mega.nz/votre-lien-ici')">Télécharger</a>
       </div>
     </div>
 
-    <!-- Nokia -->
-    <div class="marque-section">
-      <h2>Nokia</h2>
-      <div class="fichiers-grid">
-        <div class="fichier-card">
-          <h3>Nokia 2.3 MDM Bypass</h3>
-          <a href="fichiers-mdm/nokia-2.3-mdm.zip" class="btn-download" onclick="alertMsg()">Télécharger</a>
-        </div>
+    <div class="category">
+      <h2>📱 Nokia</h2>
+      <div class="file-card">
+        <span>Nokia 2.3 MDM</span>
+        <a href="javascript:void(0)" class="btn"
+           onclick="telecharger('Nokia 2.3 MDM', 'https://drive.google.com/votre-lien-ici')">Télécharger</a>
       </div>
     </div>
-  </main>
 
-  <footer>
-    <p>&copy; 2025 JosanovicTech Store - Tous droits réservés.</p>
-  </footer>
-
-  <script>
-    function alertMsg() {
-      alert("📥 Téléchargement en cours… \n\nVeuillez me contacter pour obtenir le mot de passe du fichier.");
-    }
-  </script>
+  </div>
 </body>
 </html>
