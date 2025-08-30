@@ -1,28 +1,67 @@
-<section id="fichiers-mdm" style="padding: 2rem; background-color: #f9f9f9;">
-  <h2 style="text-align:center; font-size: 2rem; margin-bottom: 2rem;">📂 Fichiers MDM à Télécharger</h2>
-  
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
-    
-    <!-- Samsung A10 -->
-    <div style="background:#fff; padding: 1rem; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); text-align:center;">
-      <h3>Samsung A10 MDM Bypass</h3>
-      <p>Contournement MDM pour Samsung A10.</p>
-      <a href="fichiers-mdm/samsung-a10-mdm-bypass.zip" download style="display:inline-block; padding: 0.6rem 1.2rem; background-color: #28a745; color: white; border-radius: 8px; text-decoration: none;">📥 Télécharger</a>
-    </div>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nos Produits - JosanovicTech Store</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body { font-family: Arial, sans-serif; background: #f4f4f4; margin:0; }
+    header { background:#0d1b2a; color:#fff; text-align:center; padding:20px; }
+    h1 { margin:0; }
+    .grid {
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap:20px;
+      padding:20px;
+    }
+    .card {
+      background:#fff;
+      border-radius:10px;
+      box-shadow:0 2px 8px rgba(0,0,0,0.1);
+      text-align:center;
+      padding:15px;
+      transition: transform 0.2s;
+    }
+    .card:hover { transform: scale(1.03); }
+    .card img { max-width:100%; border-radius:8px; }
+    .prix { font-size:1.2em; margin:10px 0; }
+    .prix del { color:gray; margin-right:8px; }
+    .btn {
+      display:inline-block;
+      padding:10px 18px;
+      background:#f77f00;
+      color:#fff;
+      border-radius:20px;
+      text-decoration:none;
+    }
+    .btn:hover { background:#d35d00; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Nos Produits</h1>
+    <p>Découvrez notre sélection d’ordinateurs au meilleur prix</p>
+  </header>
 
-    <!-- Tecno Spark 10 -->
-    <div style="background:#fff; padding: 1rem; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); text-align:center;">
-      <h3>Tecno Spark 10 MDM Bypass</h3>
-      <p>Fichier pour supprimer MDM sur Tecno Spark 10.</p>
-      <a href="fichiers-mdm/tecno-spark-10-mdm-bypass.zip" download style="display:inline-block; padding: 0.6rem 1.2rem; background-color: #007bff; color: white; border-radius: 8px; text-decoration: none;">📥 Télécharger</a>
-    </div>
+  <main>
+    <div class="grid">
+      <!-- Produit 1 -->
+      <div class="card">
+        <img src="images/dell-i5.jpg" alt="Dell Core i5">
+        <h3>Dell Core i5</h3>
+        <p class="prix"><del>650$</del> <span style="color:red;">599$</span></p>
+        <a href="produits/dell-i5.html" class="btn">Voir détails</a>
+      </div>
 
-    <!-- Infinix Note 12 -->
-    <div style="background:#fff; padding: 1rem; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); text-align:center;">
-      <h3>Infinix Note 12 MDM Bypass</h3>
-      <p>Fichier .zip pour MDM Infinix Note 12.</p>
-      <a href="fichiers-mdm/infinix-note-12-mdm-bypass.zip" download style="display:inline-block; padding: 0.6rem 1.2rem; background-color: #ff5722; color: white; border-radius: 8px; text-decoration: none;">📥 Télécharger</a>
+      <!-- Produit 2 -->
+      <div class="card">
+        <img src="images/hp-i7.jpg" alt="HP Core i7">
+        <h3>HP Core i7</h3>
+        <p class="prix"><del>900$</del> <span style="color:red;">799$</span></p>
+        <a href="produits/hp-i7.html" class="btn">Voir détails</a>
+      </div>
     </div>
-
-  </div>
-</section>
+  </main>
+</body>
+</html>
