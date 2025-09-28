@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Adaptateur PC - JosanovicTech Store</title>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Adaptateur PC - JosanovicTech Store" />
+  <meta property="og:description" content="Adaptateur PC universel, idéal pour connecter vos périphériques facilement. Disponible sur JosanovicTech Store." />
+  <meta property="og:image" content="https://i15.tvoysad.ru/2025/09/28/623319e4f4099565790160aed7f65a116f2e34.jpg" />
+  <meta property="og:url" content="https://josanovictech.store/accessoires/adaptateur-pc.html" />
+  <meta property="og:type" content="product" />
+
+  <style>
+    body{font-family:Segoe UI,Arial,sans-serif;background:#f4f6f9;margin:0}
+    .container{max-width:960px;margin:20px auto;padding:20px;background:#fff;border-radius:10px;box-shadow:0 8px 20px rgba(0,0,0,.1)}
+    h1{margin-top:0}
+    img{max-width:100%;border-radius:8px}
+    .price{font-size:1.2rem;margin:10px 0}
+    .price del{color:#888;margin-right:8px}
+    .btn{background:#f77f00;color:#fff;padding:10px 16px;border:none;border-radius:8px;cursor:pointer;font-weight:700}
+    .btn:hover{background:#d35d00}
+    .back{display:inline-block;margin-top:20px;text-decoration:none;padding:8px 14px;background:#1b263b;color:#fff;border-radius:8px}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Adaptateur PC Universel</h1>
+    <img src="https://i15.tvoysad.ru/2025/09/28/623319e4f4099565790160aed7f65a116f2e34.jpg" alt="Adaptateur PC">
+
+    <p><b>Description :</b> Adaptateur PC universel, compact et pratique pour brancher vos périphériques.</p>
+
+    <ul>
+      <li>Compatibilité : PC / Laptop</li>
+      <li>Entrées : 65W, 3.2A, 18.5V</li>
+      <li>Matériau : Aluminium</li>
+      <li>Poids : 150 g</li>
+    </ul>
+
+    <div class="price"><del>$10.00</del> <strong style="color:#d32f2f">$8.00</strong></div>
+
+    <button class="btn" onclick="addToCart('adaptateur-pc')">Ajouter au panier</button>
+    <br>
+    <a href="../accessoires.html" class="back">⬅ Retour aux accessoires</a>
+  </div>
+
+  <script>
+    function getCart(){return JSON.parse(localStorage.getItem("josanovictech_cart_v1")||"{}");}
+    function saveCart(cart){localStorage.setItem("josanovictech_cart_v1",JSON.stringify(cart));alert("Article ajouté au panier ✅");}
+    function addToCart(id){let cart=getCart();cart[id]=cart[id]?cart[id]+1:1;saveCart(cart);}
+  </script>
+</body>
+</html>
