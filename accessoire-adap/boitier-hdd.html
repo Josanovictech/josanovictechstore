@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Boîtier Disque Dur - JosanovicTech Store</title>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Boîtier Disque Dur - JosanovicTech Store" />
+  <meta property="og:description" content="Boîtier pour disque dur externe (2.5 pouces), idéal pour transporter vos données. JosanovicTech Store." />
+  <meta property="og:image"https://i12.tvoysad.ru/2025/09/28/boitier4def32464bd18c24.webp" />
+  <meta property="og:url" content="https://josanovictech.store/accessoires/boitier-hdd.html" />
+  <meta property="og:type" content="product" />
+
+  <style>
+    body{font-family:Segoe UI,Arial,sans-serif;background:#f4f6f9;margin:0}
+    .container{max-width:960px;margin:20px auto;padding:20px;background:#fff;border-radius:10px;box-shadow:0 8px 20px rgba(0,0,0,.1)}
+    h1{margin-top:0}
+    img{max-width:100%;border-radius:8px}
+    .price{font-size:1.2rem;margin:10px 0}
+    .price del{color:#888;margin-right:8px}
+    .btn{background:#f77f00;color:#fff;padding:10px 16px;border:none;border-radius:8px;cursor:pointer;font-weight:700}
+    .btn:hover{background:#d35d00}
+    .back{display:inline-block;margin-top:20px;text-decoration:none;padding:8px 14px;background:#1b263b;color:#fff;border-radius:8px}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Boîtier Disque Dur 2.5"</h1>
+    <img src="https://i12.tvoysad.ru/2025/09/28/boitier4def32464bd18c24.webp" alt="Boîtier Disque Dur">
+
+    <p><b>Description :</b> Boîtier externe pour disque dur 2.5", transformez votre HDD ou SSD en stockage portable.</p>
+
+    <ul>
+      <li>Compatibilité : HDD / SSD 2.5"</li>
+      <li>Interface : USB 3.0</li>
+      <li>Matériau : Plastique ABS</li>
+      <li>Couleur : Noir</li>
+    </ul>
+
+    <div class="price"><del>$4.00</del> <strong style="color:#d32f2f">$3.00</strong></div>
+
+    <button class="btn" onclick="addToCart('boitier-hdd')">Ajouter au panier</button>
+    <br>
+    <a href="../accessoires.html" class="back">⬅ Retour aux accessoires</a>
+  </div>
+
+  <script>
+    function getCart(){return JSON.parse(localStorage.getItem("josanovictech_cart_v1")||"{}");}
+    function saveCart(cart){localStorage.setItem("josanovictech_cart_v1",JSON.stringify(cart));alert("Article ajouté au panier ✅");}
+    function addToCart(id){let cart=getCart();cart[id]=cart[id]?cart[id]+1:1;saveCart(cart);}
+  </script>
+</body>
+</html>
