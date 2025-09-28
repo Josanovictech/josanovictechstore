@@ -3,109 +3,81 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact - TIT SARL</title>
-  <link rel="stylesheet" href="assets/css/style.css">
+  <title>Contact - JosanovicTech Store</title>
+  <link rel="stylesheet" href="styles.css">
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: url('assets/images/contact-bg.jpg') no-repeat center center/cover;
-      color: #333;
-    }
-    header {
-      background: rgba(0,0,0,0.85);
-      color: #fff;
-      padding: 20px;
-      text-align: center;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.3em;
-      color: #00c4ff;
-    }
-    .container {
-      max-width: 1100px;
-      margin: 40px auto;
-      padding: 20px;
-      background: rgba(255,255,255,0.95);
-      border-radius: 10px;
-      box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
-    }
-    h2 {
-      color: #222;
-      border-left: 5px solid #00c4ff;
-      padding-left: 10px;
-    }
-    .contact-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
-      margin-top: 20px;
-    }
-    .contact-card {
-      background: #f9f9f9;
-      border-radius: 8px;
-      padding: 20px;
-      text-align: left;
-      box-shadow: 0px 3px 10px rgba(0,0,0,0.1);
-    }
-    .contact-card h3 {
-      margin-top: 0;
-      color: #ff6600;
-    }
-    .btn-whatsapp {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 10px 16px;
-      background: #25D366;
-      color: #fff;
-      font-weight: bold;
-      text-decoration: none;
-      border-radius: 8px;
-      transition: 0.3s;
-    }
-    .btn-whatsapp:hover {
-      background: #1da851;
-    }
-    iframe {
-      width: 100%;
-      height: 250px;
-      border: none;
-      border-radius: 8px;
-      margin-top: 10px;
-    }
+    body { font-family: Arial, sans-serif; margin:0; background:#f4f4f9; }
+    header { background:#0d1b2a; color:white; padding:20px; text-align:center; }
+    h1 { margin:0; }
+    .container { max-width:900px; margin:30px auto; background:white; padding:30px; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1); }
+    .info { margin-bottom:20px; }
+    form { display:flex; flex-direction:column; }
+    label { margin-top:10px; font-weight:bold; }
+    input, textarea { padding:10px; margin-top:5px; border:1px solid #ccc; border-radius:5px; }
+    textarea { resize:vertical; min-height:120px; }
+    button { margin-top:15px; padding:12px; background:#f77f00; border:none; border-radius:5px; color:white; font-weight:bold; cursor:pointer; }
+    button:hover { background:#d35d00; }
+    footer { text-align:center; background:#1b263b; color:white; padding:15px; margin-top:40px; }
+
+    /* Map */
+    .map-container { margin-top:30px; border-radius:10px; overflow:hidden; box-shadow:0 3px 6px rgba(0,0,0,0.1); }
+
+    /* Floating buttons */
+    .float-btns { position:fixed; bottom:20px; right:20px; display:flex; flex-direction:column; gap:10px; }
+    .float-btns img { width:55px; height:55px; border-radius:50%; box-shadow:0 4px 6px rgba(0,0,0,0.2); }
   </style>
 </head>
 <body>
   <header>
-    <h1>📞 Contactez-nous</h1>
+    <h1>Contactez-nous</h1>
+    <p>Nous répondons rapidement à toutes vos demandes</p>
   </header>
 
   <div class="container">
-    <h2>Nos adresses</h2>
-    <div class="contact-grid">
-      <!-- Adresse Goma -->
-      <div class="contact-card">
-        <h3>📍 Goma</h3>
-        <p><strong>Adresse :</strong> Commune de Goma, Quartier Keshero, Avenue BUKAMA SUD</p>
-        <p><strong>Téléphone :</strong> +243 817775070</p>
-        <p><strong>Email :</strong> techno.innov.transf.2020@gmail.com</p>
-        <a href="https://wa.me/243817775070" target="_blank" class="btn-whatsapp">💬 WhatsApp Goma</a>
-        <iframe src="https://www.google.com/maps?q=Goma,+Keshero,+Bukama+Sud&output=embed"></iframe>
-      </div>
+    <div class="info">
+      <p><strong>Email :</strong> <a href="mailto:josanovictech@gmail.com">josanovictech@gmail.com</a></p>
+      <p><strong>Téléphone :</strong> +243 899 999 999</p>
+      <p><strong>Adresse :</strong> Goma, Quartier Kyeshero, Avenue des Enseignants</p>
+    </div>
 
-      <!-- Adresse Bukavu -->
-      <div class="contact-card">
-        <h3>📍 Bukavu</h3>
-        <p><strong>Adresse :</strong> N°036, Avenue P.E Lumumba, Quartier Ndendere, Commune d’Ibanda,<br> en diagonale de l’Hôtel Résidence de Bukavu</p>
-        <p><strong>Téléphone :</strong> +243 817775070</p>
-        <p><strong>Email :</strong> techno.innov.transf.2020@gmail.com</p>
-        <a href="https://wa.me/243817775070" target="_blank" class="btn-whatsapp">💬 WhatsApp Bukavu</a>
-        <iframe src="https://www.google.com/maps?q=Avenue+P.E+Lumumba,+Ndendere,+Bukavu,+RDC&output=embed"></iframe>
-      </div>
+    <form action="mailto:josanovictech@gmail.com" method="post" enctype="text/plain">
+      <label for="nom">Votre Nom</label>
+      <input type="text" id="nom" name="nom" placeholder="Entrez votre nom" required>
+
+      <label for="email">Votre Email</label>
+      <input type="email" id="email" name="email" placeholder="Entrez votre email" required>
+
+      <label for="message">Votre Message</label>
+      <textarea id="message" name="message" placeholder="Écrivez votre message" required></textarea>
+
+      <button type="submit">Envoyer le message</button>
+    </form>
+
+    <!-- Google Map -->
+    <div class="map-container">
+      <iframe 
+        src="https://www.google.com/maps?q=Goma,+Kyeshero,+Avenue+des+Enseignants&output=embed" 
+        width="100%" 
+        height="400" 
+        style="border:0;" 
+        allowfullscreen 
+        loading="lazy">
+      </iframe>
     </div>
   </div>
 
+  <footer>
+    <p>&copy; 2025 JosanovicTech. Tous droits réservés.</p>
+  </footer>
+
+  <!-- Boutons flottants WhatsApp & Telegram -->
+  <div class="float-btns">
+    <a href="https://wa.me/243999160981" target="_blank" title="WhatsApp">
+      <img src="images/whatsapp-icon.png" alt="WhatsApp">
+    </a>
+    <a href="https://t.me/josanovic" target="_blank" title="Telegram">
+      <img src="images/telegram-icon.png" alt="Telegram">
+    </a>
+  </div>
 </body>
 </html>
