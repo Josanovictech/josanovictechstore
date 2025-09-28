@@ -1,134 +1,414 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Accessoires PC - JosanovicTech Store</title>
 
   <!-- Open Graph (aperçu réseaux sociaux) -->
-  <meta property="og:title" content="Accessoires PC - JosanovicTech Store">
-  <meta property="og:description" content="Découvrez nos accessoires PC : RAM, SSD, claviers et bien plus au meilleur prix sur JosanovicTech Store.">
-  <meta property="og:image" content="https://josanovictech.store/images/ram-8go.jpg">
-  <meta property="og:url" content="https://josanovictech.store/accessoires.html">
-  <meta property="og:type" content="website">
+  <meta property="og:title" content="Accessoires PC - JosanovicTech Store" />
+  <meta property="og:description" content="RAM, SSD, HDD, boîtiers et claviers — meilleurs prix et livraison rapide sur JosanovicTech Store." />
+  <meta property="og:image" content="https://josanovictech.store/images/accessoires/ssd-256.jpg" />
+  <meta property="og:url" content="https://josanovictech.store/accessoires.html" />
+  <meta property="og:type" content="website" />
 
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background:#f4f4f9;
+    :root{
+      --bg:#f4f6f9;
+      --primary:#0d1b2a;
+      --accent:#f77f00;
+      --accent-dark:#d35d00;
+      --card-bg:#ffffff;
+      --danger:#e53935;
+    }
+    *{box-sizing:border-box}
+    body{
       margin:0;
-      color:#333;
+      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+      background:var(--bg);
+      color:#222;
     }
-    header {
-      background:#0d1b2a;
-      color:white;
-      text-align:center;
-      padding:30px 20px;
-    }
-    header h1 { margin:0; font-size:2.5em; }
-    header p { margin-top:10px; font-size:1.2em; }
 
-    .container {
-      max-width:1100px;
-      margin:30px auto;
-      padding:20px;
+    /* Header */
+    header{
+      background:var(--primary);
+      color:#fff;
+      padding:28px 16px;
+      text-align:center;
     }
-    .grid {
+    header h1{margin:0;font-size:2rem}
+    header p{margin:8px 0 0;color:#ddd}
+
+    /* Container */
+    .container{max-width:1200px;margin:28px auto;padding:0 16px}
+
+    /* Grid */
+    .grid{
       display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
-      gap:25px;
+      grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+      gap:22px;
     }
-    .card {
-      background:white;
-      border-radius:12px;
-      box-shadow:0 6px 12px rgba(0,0,0,0.1);
-      padding:15px;
-      text-align:center;
-      transition:transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    .card:hover {
-      transform:translateY(-5px);
-      box-shadow:0 10px 18px rgba(0,0,0,0.15);
-    }
-    .card img {
-      width:100%;
-      height:200px;
-      object-fit:cover;
-      border-radius:10px;
-    }
-    .card h3 { margin:15px 0 10px; }
-    .prix { font-size:1.1em; margin:10px 0; }
-    .prix del { color:#888; margin-right:10px; }
-    .btn {
-      display:inline-block;
-      margin-top:10px;
-      padding:10px 20px;
-      background:#f77f00;
-      color:white;
-      border-radius:6px;
-      text-decoration:none;
-      font-weight:bold;
-    }
-    .btn:hover { background:#d35d00; }
 
-    /* Bouton retour */
-    .back-home {
-      display:block;
-      width:200px;
-      margin:40px auto 0;
+    .card{
+      background:var(--card-bg);
+      border-radius:12px;
+      padding:14px;
+      box-shadow:0 6px 18px rgba(13,27,42,0.06);
       text-align:center;
-      padding:12px;
-      background:#1b263b;
-      color:white;
+      transition: transform .18s ease, box-shadow .18s ease;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+    .card:hover{ transform: translateY(-6px); box-shadow:0 14px 30px rgba(13,27,42,0.10); }
+    .card img{
+      width:100%;
+      height:170px;
+      object-fit:cover;
       border-radius:8px;
-      text-decoration:none;
-      font-weight:bold;
     }
-    .back-home:hover {
-      background:#0d1b2a;
+    .card h3{margin:6px 0 0;font-size:1.05rem}
+    .prix{font-size:1.05rem;margin-top:6px}
+    .prix del{color:#888;margin-right:8px}
+    .card .actions{margin-top:auto;display:flex;gap:8px;justify-content:center;align-items:center}
+    .btn{
+      display:inline-block;padding:10px 14px;border-radius:10px;background:var(--accent);color:#fff;text-decoration:none;font-weight:700;
+      cursor:pointer;border:none;
     }
-    footer {
-      text-align:center;
-      background:#1b263b;
-      color:white;
-      padding:20px;
-      margin-top:40px;
+    .btn:hover{background:var(--accent-dark)}
+    .btn.secondary{background:#1b263b}
+    .btn.small{padding:8px 10px;font-size:.95rem;border-radius:8px}
+
+    /* Back home */
+    .back-home{display:inline-block;margin:22px auto;padding:10px 18px;background:#1b263b;color:#fff;border-radius:10px;text-decoration:none;font-weight:700}
+
+    /* Floating cart button */
+    .cart-float{
+      position:fixed;
+      right:20px;
+      bottom:20px;
+      z-index:1200;
+      display:flex;
+      align-items:center;
+      gap:12px;
+      background:linear-gradient(90deg,var(--primary),#123);
+      color:#fff;
+      padding:10px 14px;border-radius:40px;box-shadow:0 10px 20px rgba(0,0,0,0.2);cursor:pointer;
+    }
+    .cart-float .count{
+      background:#fff;color:var(--primary);font-weight:800;padding:6px 10px;border-radius:20px;
+    }
+
+    /* Cart panel */
+    .cart-panel{
+      position:fixed;
+      right:20px;
+      bottom:80px;
+      width:360px;
+      max-height:70vh;
+      overflow:auto;
+      background:var(--card-bg);
+      border-radius:12px;
+      box-shadow:0 18px 40px rgba(0,0,0,0.2);
+      z-index:1200;
+      display:none;
+      flex-direction:column;
+      padding:12px;
+    }
+    .cart-panel.show{display:flex}
+    .cart-item{display:flex;gap:10px;align-items:center;padding:8px;border-bottom:1px solid #eee}
+    .cart-item img{width:64px;height:48px;object-fit:cover;border-radius:6px}
+    .cart-item .meta{flex:1;text-align:left}
+    .cart-item .meta b{display:block}
+    .qty-controls{display:flex;gap:6px;align-items:center}
+    .qty-controls button{padding:6px 8px;border-radius:6px;border:1px solid #ddd;background:#fff;cursor:pointer}
+    .remove-btn{background:var(--danger);color:#fff;border:none;padding:6px 8px;border-radius:6px;cursor:pointer}
+    .cart-summary{padding:10px;border-top:1px solid #eee;display:flex;flex-direction:column;gap:8px}
+    .row{display:flex;justify-content:space-between;align-items:center}
+    .total{font-weight:800;font-size:1.15rem;color:var(--primary)}
+    .cart-actions{display:flex;gap:8px;justify-content:space-between}
+    .clear-cart{background:#fff;color:var(--primary);border:1px solid #ddd;padding:8px 10px;border-radius:8px;cursor:pointer}
+    .checkout{background:#25d366;color:#fff;padding:10px;border-radius:8px;border:none;cursor:pointer;font-weight:700}
+
+    /* Small screens */
+    @media(max-width:480px){
+      .cart-panel{width:92%;right:4%}
     }
   </style>
 </head>
 <body>
+
   <header>
     <h1>Accessoires PC</h1>
-    <p>Découvrez nos accessoires au meilleur prix</p>
+    <p>Adapteurs,disque Dur HDD-SSD, boîtiers, claviers,.. — sélection testée et garantie</p>
   </header>
 
   <div class="container">
-    <div class="grid">
-
-      <!-- Accessoire 1 -->
-      <div class="card">
-        <img src="images/ram-8go.jpg" alt="RAM DDR4 8Go">
-        <h3>RAM DDR4 8Go</h3>
-        <p class="prix"><del>45$</del> <span style="color:red;">35$</span></p>
-        <a href="accessoires/ram-8go.html" class="btn">Voir détails</a>
-      </div>
-
-      <!-- Accessoire 2 -->
-      <div class="card">
-        <img src="images/ssd-256.jpg" alt="SSD 256 Go">
-        <h3>SSD 256 Go</h3>
-        <p class="prix"><del>60$</del> <span style="color:red;">49$</span></p>
-        <a href="accessoires/ssd-256.html" class="btn">Voir détails</a>
-      </div>
-
+    <div class="grid" id="productsGrid">
+      <!-- Les cartes seront injectées par JS -->
     </div>
 
-    <!-- Bouton retour -->
-    <a href="index.html" class="back-home">⬅ Retour à l'accueil</a>
+    <a class="back-home" href="index.html">⬅ Retour à l'accueil</a>
   </div>
 
-  <footer>
-    <p>&copy; 2025 JosanovicTech. Tous droits réservés.</p>
-  </footer>
+  <!-- Floating cart -->
+  <div class="cart-float" id="cartFloat" onclick="toggleCartPanel()">
+    🛒 <span style="margin-left:8px">Panier</span>
+    <span class="count" id="cartCount">0</span>
+  </div>
+
+  <!-- Cart panel -->
+  <div class="cart-panel" id="cartPanel" aria-hidden="true">
+    <div style="display:flex;justify-content:space-between;align-items:center;padding:6px 4px">
+      <strong>Votre panier</strong>
+      <button onclick="toggleCartPanel()" style="background:none;border:none;cursor:pointer;font-size:18px">✕</button>
+    </div>
+    <div id="cartItemsContainer"></div>
+
+    <div class="cart-summary">
+      <div class="row"><span>Sous-total</span><span id="subtotalTxt">$0.00</span></div>
+      <div class="row"><span>Frais</span><span id="shippingTxt">—</span></div>
+      <div class="row total"><span>Total</span><span id="totalTxt">$0.00</span></div>
+
+      <div class="cart-actions">
+        <button class="clear-cart" onclick="clearCart()">Vider le panier</button>
+        <button class="checkout" onclick="openCheckoutForm()">Passer commande</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Checkout form modal (simple) -->
+  <div id="checkoutModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:1300;align-items:center;justify-content:center;">
+    <div style="background:#fff;padding:18px;border-radius:10px;max-width:420px;width:92%;">
+      <h3 style="margin-top:0">Finaliser la commande</h3>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <input id="custName" placeholder="Votre nom" style="padding:10px;border:1px solid #ccc;border-radius:6px" />
+        <input id="custPhone" placeholder="Numéro WhatsApp (ex: 2438xxxxxxxx)" style="padding:10px;border:1px solid #ccc;border-radius:6px" />
+        <textarea id="custNote" placeholder="Adresse ou note (optionnel)" rows="3" style="padding:10px;border:1px solid #ccc;border-radius:6px"></textarea>
+        <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:6px;">
+          <button onclick="closeCheckoutForm()" style="background:#fff;border:1px solid #ddd;padding:10px;border-radius:6px;cursor:pointer">Annuler</button>
+          <button onclick="confirmOrder()" style="background:#25d366;color:#fff;padding:10px;border:none;border-radius:6px;cursor:pointer">Envoyer la commande</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    /********** Données produits (modifie / ajoute facilement) **********/
+    const PRODUCTS = [
+      {
+        id: "adap-pc",
+        name: "Adaptateur PC (USB → Alim)",
+        price: 8.00,
+        oldPrice: 10.00,
+        img: "https://i15.tvoysad.ru/2025/09/28/623319e4f4099565790160aed7f65a116f2e34.jpg",
+        slug: "accessoires/adaptateur-pc.html"
+      },
+      {
+        id: "hdd-500gb",
+        name: "Disque Dur HDD 500Gb",
+        price: 10.00,
+        oldPrice: 15.00,
+        img: "https://i10.tvoysad.ru/2025/09/28/disque-dur-500-go-sata-3-5-blue-wd5000aakx-western-digitaldb6312f2d7315ecb.webp",
+        slug: "accessoires/hdd-500gb.html"
+      },
+      {
+        id: "ssd-256",
+        name: "SSD 256 Go",
+        price: 18.00,
+        oldPrice: 25.00,
+        img: "https://i11.tvoysad.ru/2025/09/28/disque-dur-ssd-hp-s750-25-1tb-copy-97219942-tunisiee93f02639d870dd2.jpg",
+        slug: "accessoires/ssd-256.html"
+      },
+      {
+        id: "boitier-hdd",
+        name: "Boîtier pour disque dur (2.5\"/3.5\")",
+        price: 3.00,
+        oldPrice: 4.00,
+        img: "https://i12.tvoysad.ru/2025/09/28/boitier4def32464bd18c24.webp",
+        slug: "accessoires/boitier-hdd.html"
+      },
+      {
+        id: "clavier externe pour pc et unite centrale",
+        name: "Clavier USB",
+        price: 12.00,
+        oldPrice: 15.00,
+        img: "https://i13.tvoysad.ru/2025/09/28/clavier-pc-azerty-noir-usb-hp-ku-1156-672647-053-7c5d1372e6c393edb.webp",
+        slug: "accessoires/clavier-mech.html"
+      }
+    ];
+
+    /* --- Cart handling (stored in localStorage) --- */
+    const CART_KEY = "josanovictech_cart_v1";
+
+    function getCart(){
+      const raw = localStorage.getItem(CART_KEY);
+      return raw ? JSON.parse(raw) : {};
+    }
+    function saveCart(cart){ localStorage.setItem(CART_KEY, JSON.stringify(cart)); updateCartUI(); }
+
+    function addToCart(productId){
+      const cart = getCart();
+      cart[productId] = cart[productId] ? cart[productId] + 1 : 1;
+      saveCart(cart);
+      flashMessage("Article ajouté au panier ✅");
+    }
+
+    function removeFromCart(productId){
+      const cart = getCart();
+      if(cart[productId]) delete cart[productId];
+      saveCart(cart);
+    }
+
+    function setQty(productId, qty){
+      const cart = getCart();
+      qty = parseInt(qty) || 0;
+      if(qty <= 0) delete cart[productId];
+      else cart[productId] = qty;
+      saveCart(cart);
+    }
+
+    function clearCart(){
+      if(!confirm("Vider tout le panier ?")) return;
+      localStorage.removeItem(CART_KEY);
+      updateCartUI();
+    }
+
+    /* --- UI rendering --- */
+    function renderProducts(){
+      const grid = document.getElementById("productsGrid");
+      grid.innerHTML = "";
+      PRODUCTS.forEach(p=>{
+        const card = document.createElement("div");
+        card.className = "card";
+        card.innerHTML = `
+          <img src="${p.img}" alt="${p.name}" loading="lazy">
+          <h3>${p.name}</h3>
+          <div class="prix"><del>$${p.oldPrice.toFixed(2)}</del> <strong style="color:#d32f2f">$${p.price.toFixed(2)}</strong></div>
+          <div class="actions">
+            <button class="btn small" onclick="addToCart('${p.id}')">Ajouter au panier</button>
+            <a class="btn small secondary" href="${p.slug}">Voir détails</a>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function updateCartUI(){
+      const cart = getCart();
+      const count = Object.values(cart).reduce((s,q)=>s+q,0);
+      document.getElementById("cartCount").innerText = count;
+
+      const container = document.getElementById("cartItemsContainer");
+      container.innerHTML = "";
+
+      let subtotal = 0;
+      for(const id in cart){
+        const qty = cart[id];
+        const product = PRODUCTS.find(p=>p.id===id);
+        if(!product) continue;
+        const itemTotal = product.price * qty;
+        subtotal += itemTotal;
+
+        const item = document.createElement("div");
+        item.className = "cart-item";
+        item.innerHTML = `
+          <img src="${product.img}" alt="${product.name}">
+          <div class="meta">
+            <b>${product.name}</b>
+            <div style="color:#666;font-size:.95rem">$${product.price.toFixed(2)} x ${qty} = $${itemTotal.toFixed(2)}</div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px">
+            <div class="qty-controls">
+              <button onclick="decreaseQty('${id}')">−</button>
+              <div style="padding:6px 10px;border:1px solid #eee;border-radius:6px">${qty}</div>
+              <button onclick="increaseQty('${id}')">+</button>
+            </div>
+            <button class="remove-btn" onclick="removeFromCart('${id}')">Supprimer</button>
+          </div>
+        `;
+        container.appendChild(item);
+      }
+
+      const subtotalTxt = document.getElementById("subtotalTxt");
+      const totalTxt = document.getElementById("totalTxt");
+      subtotalTxt.innerText = `$${subtotal.toFixed(2)}`;
+      // ici on ne calcule pas de livraison fixe (0)
+      totalTxt.innerText = `$${subtotal.toFixed(2)}`;
+    }
+
+    function increaseQty(id){ const cart = getCart(); cart[id] = (cart[id]||0) + 1; saveCart(cart); }
+    function decreaseQty(id){ const cart = getCart(); cart[id] = Math.max((cart[id]||0) - 1,0); if(cart[id]===0) delete cart[id]; saveCart(cart); }
+
+    function toggleCartPanel(){
+      const panel = document.getElementById("cartPanel");
+      panel.classList.toggle("show");
+      panel.setAttribute("aria-hidden", panel.classList.contains("show") ? "false":"true");
+    }
+
+    function flashMessage(msg){
+      // petit feedback simple
+      const el = document.createElement("div");
+      el.textContent = msg;
+      Object.assign(el.style,{position:"fixed",left:"50%",transform:"translateX(-50%)",bottom:"110px",background:"#222",color:"#fff",padding:"10px 14px",borderRadius:"8px",zIndex:1400,opacity:0.95});
+      document.body.appendChild(el);
+      setTimeout(()=>el.remove(),2200);
+    }
+
+    /* Checkout */
+    function openCheckoutForm(){
+      const cart = getCart();
+      if(Object.keys(cart).length===0){ alert("Votre panier est vide."); return; }
+      document.getElementById("checkoutModal").style.display = "flex";
+    }
+    function closeCheckoutForm(){
+      document.getElementById("checkoutModal").style.display = "none";
+    }
+
+    function confirmOrder(){
+      const name = document.getElementById("custName").value.trim();
+      const phone = document.getElementById("custPhone").value.trim();
+      const note = document.getElementById("custNote").value.trim();
+      if(!name || !phone){ alert("Veuillez renseigner votre nom et votre numéro WhatsApp."); return; }
+
+      const cart = getCart();
+      let message = "Nouvelle commande - JosanovicTech Store%0A";
+      message += "Nom: " + encodeURIComponent(name) + "%0A";
+      message += "WhatsApp: " + encodeURIComponent(phone) + "%0A%0A";
+      message += "Articles:%0A";
+
+      let subtotal = 0;
+      for(const id in cart){
+        const qty = cart[id];
+        const product = PRODUCTS.find(p=>p.id===id);
+        if(!product) continue;
+        const lineTotal = product.price * qty;
+        subtotal += lineTotal;
+        message += `${qty} x ${product.name} - $${product.price.toFixed(2)} = $${lineTotal.toFixed(2)}%0A`;
+      }
+      message += `%0ATotal: $${subtotal.toFixed(2)}%0A`;
+      if(note) message += `%0ANote: ${encodeURIComponent(note)}%0A`;
+
+      // <-- REMPLACEZ CE NUMERO PAR TON NUMERO WHATSAPP (format international, ex 2438...) -->
+      const myWhatsApp = "243999160981";
+
+      // composer le lien WhatsApp
+      const waLink = "https://wa.me/" + myWhatsApp + "?text=" + message;
+
+      // ouvrir WhatsApp (nouvelle fenêtre)
+      window.open(waLink, "_blank");
+
+      // fermer modal et vider panier
+      closeCheckoutForm();
+      localStorage.removeItem(CART_KEY);
+      updateCartUI();
+      flashMessage("Commande envoyée. Nous vous contacterons bientôt via WhatsApp.");
+      toggleCartPanel();
+    }
+
+    /* Initialiser */
+    renderProducts();
+    updateCartUI();
+  </script>
 </body>
 </html>
