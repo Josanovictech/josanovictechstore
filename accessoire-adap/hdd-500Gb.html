@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Disque Dur HDD 500Gb - JosanovicTech Store</title>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Disque Dur HDD 500Gb - JosanovicTech Store" />
+  <meta property="og:description" content="Disque Dur HDD 500Gbfiable pour le stockage de vos données. Disponible sur JosanovicTech Store." />
+  <meta property="og:image" content="https://i10.tvoysad.ru/2025/09/28/disque-dur-500-go-sata-3-5-blue-wd5000aakx-western-digitaldb6312f2d7315ecb.webp" />
+  <meta property="og:url" content="https://josanovictech.store/accessoires/hdd-500Gb.html" />
+  <meta property="og:type" content="product" />
+
+  <style>
+    body{font-family:Segoe UI,Arial,sans-serif;background:#f4f6f9;margin:0}
+    .container{max-width:960px;margin:20px auto;padding:20px;background:#fff;border-radius:10px;box-shadow:0 8px 20px rgba(0,0,0,.1)}
+    h1{margin-top:0}
+    img{max-width:100%;border-radius:8px}
+    .price{font-size:1.2rem;margin:10px 0}
+    .price del{color:#888;margin-right:8px}
+    .btn{background:#f77f00;color:#fff;padding:10px 16px;border:none;border-radius:8px;cursor:pointer;font-weight:700}
+    .btn:hover{background:#d35d00}
+    .back{display:inline-block;margin-top:20px;text-decoration:none;padding:8px 14px;background:#1b263b;color:#fff;border-radius:8px}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Disque Dur HDD 500Gb</h1>
+    <img src="https://i10.tvoysad.ru/2025/09/28/disque-dur-500-go-sata-3-5-blue-wd5000aakx-western-digitaldb6312f2d7315ecb.webp" alt="Disque Dur HDD 500Gb">
+
+    <p><b>Description :</b> Disque Dur interne 500Gb, idéal pour sauvegarder films, photos, musiques et documents.</p>
+
+    <ul>
+      <li>Capacité : 500 Gb</li>
+      <li>Interface : HDD III</li>
+      <li>Vitesse rotation : 7200 RPM</li>
+      <li>Cache : 64 MB</li>
+      <li>Garantie : 12 mois</li>
+    </ul>
+
+    <div class="price"><del>$15.00</del> <strong style="color:#d32f2f">$10.00</strong></div>
+
+    <button class="btn" onclick="addToCart('hdd-1tb')">Ajouter au panier</button>
+    <br>
+    <a href="../accessoires.html" class="back">⬅ Retour aux accessoires</a>
+  </div>
+
+  <script>
+    // Synchronisation avec panier global
+    function getCart(){return JSON.parse(localStorage.getItem("josanovictech_cart_v1")||"{}");}
+    function saveCart(cart){localStorage.setItem("josanovictech_cart_v1",JSON.stringify(cart));alert("Article ajouté au panier ✅");}
+    function addToCart(id){let cart=getCart();cart[id]=cart[id]?cart[id]+1:1;saveCart(cart);}
+  </script>
+</body>
+</html>
