@@ -3,74 +3,63 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JosanovicTech Store</title>
-  <link rel="stylesheet" href="styles.css">
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="JosanovicTech Store - Fichiers MDM, Logiciels GSM, Accessoires PC et Services">
-  <meta property="og:description" content="Découvrez JosanovicTech Store : vos fichiers MDM, logiciels GSM, accessoires PC et maintenance électronique au meilleur prix.">
-  <meta property="og:image" content="https://i12.tvoysad.ru/2025/09/28/ChatGPT-Image-28-sept.-2025-21_28_045d3cedb349f11fc7.png">
-  <meta property="og:url" content="https://josanovictech.store">
+  <!-- 🏷️ Titre et description -->
+  <title>JosanovicTech Store - Fichiers MDM, Logiciels GSM, Accessoires PC et Maintenance</title>
+  <meta name="description" content="JosanovicTech Store : Fichiers MDM, Logiciels GSM, Accessoires PC et services de maintenance électronique de qualité professionnelle.">
+
+  <!-- 🔍 Mots-clés SEO -->
+  <meta name="keywords" content="JosanovicTech Store, fichiers MDM, logiciels GSM, outils FRP, accessoires PC, maintenance électronique, déblocage téléphone, tech Congo, JosanovicTech">
+
+  <!-- 🧭 Auteur -->
+  <meta name="author" content="JosanovicTech">
+
+  <!-- 🌐 Canonical -->
+  <link rel="canonical" href="https://josanovictech.store/">
+
+  <!-- 🧩 Favicon -->
+  <link rel="icon" href="https://josanovictech.store/images/logo.png" type="image/png">
+
+  <!-- 🟢 Open Graph (Facebook, WhatsApp, Telegram) -->
+  <meta property="og:site_name" content="JosanovicTech Store">
+  <meta property="og:title" content="JosanovicTech Store - Fichiers MDM, Logiciels GSM et Accessoires PC">
+  <meta property="og:description" content="JosanovicTech Store, votre solution fiable pour fichiers MDM, logiciels GSM, accessoires PC et maintenance électronique.">
+  <meta property="og:image" content=" https://i12.tvoysad.ru/2025/09/28/ChatGPT-Image-28-sept.-2025-21_28_045d3cedb349f11fc7.png">
+  <meta property="og:url" content="https://josanovictech.store/">
   <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
 
-  <style>
-    body { margin:0; font-family: 'Segoe UI', Arial, sans-serif; background:#1cb349; color:#333; }
-    header { background:#0d1b2a; color:green; padding:10px 20px; display:flex; align-items:center; justify-content:space-between; }
-    header img { height:60px; }
-    nav ul { list-style:none; display:flex; gap:20px; margin:0; padding:0; }
-    nav ul li a { color:white; text-decoration:none; font-weight:bold; }
+  <!-- 🕊️ Twitter Card (optionnel mais utile pour SEO) -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="JosanovicTech Store">
+  <meta name="twitter:description" content="Fichiers MDM, Logiciels GSM, Accessoires PC et maintenance électronique.">
+  <meta name="twitter:image" content="https://josanovictech.store/images/logo.png">
 
-    .hero { background:url('images/banner-tech.jpg') no-repeat center/cover; padding:100px 20px; text-align:center; color:white; }
-    .hero h1 { font-size:3em; margin:0; }
-    .hero p { font-size:1.3em; margin:15px 0; }
-    .hero .btn { background:#f77f00; padding:12px 25px; border-radius:25px; text-decoration:none; color:white; font-weight:bold; }
-    .hero .btn:hover { background:#d35d00; }
+  <!-- 🧱 Données structurées JSON-LD (logo + liens officiels) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "JosanovicTech Store",
+    "url": "https://josanovictech.store",
+    "logo": "https://i12.tvoysad.ru/2025/09/28/ChatGPT-Image-28-sept.-2025-21_28_045d3cedb349f11fc7.png",
+    "sameAs": [
+      "https://www.facebook.com/JosanovicTech",
+      "https://t.me/josanovictech",
+      "https://youtube.com/@josanovictech12"
+    ]
+  }
+  </script>
 
-    section { padding:60px 20px; max-width:1100px; margin:auto; }
+  <!-- 📱 Styles et police -->
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
-    h2 { text-align:center; font-size:2em; margin-bottom:20px; color:#0d1b2a; }
-
-    .grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap:20px; }
-
-    .card { background:white; border-radius:12px; padding:20px; text-align:center; box-shadow:0 6px 12px rgba(0,0,0,0.1); transition:transform 0.2s; }
-    .card:hover { transform:translateY(-5px); }
-    .card img { width:80px; margin-bottom:15px; }
-
-    .btn { display:inline-block; margin-top:10px; padding:10px 20px; background:#f77f00; color:white; border-radius:20px; text-decoration:none; transition:background 0.3s; }
-    .btn:hover { background:#d35d00; }
-
-    .avis, .newsletter { background:#eef2f7; border-radius:10px; padding:30px; text-align:center; }
-
-    .avis p { font-style:italic; margin:10px 0; }
-
-    .newsletter input[type="email"] { padding:10px; border-radius:5px; border:1px solid #ccc; width:250px; }
-    .newsletter button { padding:10px 20px; background:#0d1b2a; color:white; border:none; border-radius:5px; cursor:pointer; }
-    .newsletter button:hover { background:#1b263b; }
-
-    footer { background:#0d1b2a; color:white; text-align:center; padding:20px; margin-top:40px; }
-
-    /* Floating buttons */
-    .float-btns { position:fixed; bottom:20px; right:20px; display:flex; flex-direction:column; gap:10px; z-index:100; }
-    .float-btns img { width:55px; height:55px; border-radius:50%; box-shadow:0 4px 6px rgba(0,0,0,0.2); }
-  </style>
-  
-    <!-- Données structurées pour afficher le logo sur Google -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "JosanovicTech Store",
-  "url": "https://josanovictech.store",
-  "logo": "https://i12.tvoysad.ru/2025/09/28/ChatGPT-Image-28-sept.-2025-21_28_045d3cedb349f11fc7.png",
-  "sameAs": [
-    "https://www.facebook.com/JosanovicTech",
-    "https://t.me/josanovictech",
-    "https://www.youtube.com/@josanovictech12"
-  ]
-}
-</script>
-
+  <!-- 🧠 Indexation par Google -->
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow">
 </head>
+
 <body>
 
   <header>
