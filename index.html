@@ -184,15 +184,15 @@ let currentSlide = 0;
 
 function showNextAvis() {
     const track = document.querySelector(".avis-track");
-    const totalSlides = document.querySelectorAll(".avis-item").length;
+    const items = document.querySelectorAll(".avis-item");
+    const total = items.length;
 
-    currentSlide++;
-    if (currentSlide >= totalSlides) currentSlide = 0;
+    currentSlide = (currentSlide + 1) % total;
 
-    track.style.transform = "translateX(-" + currentSlide * 100 + "%)";
+    track.style.transform = "translateX(-" + (currentSlide * 100) + "%)";
 }
 
-// change d’avis toutes les 8 seconds
+// Défilement toutes les 8 secondes
 setInterval(showNextAvis, 8000);
 </script>
 
