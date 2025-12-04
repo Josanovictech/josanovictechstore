@@ -129,29 +129,33 @@
 <section class="avis-section fade-up">
   <h2 class="fade-title">⭐ Ce que disent nos clients ⭐</h2>
 
-  <div class="avis-carousel" id="avisCarousel">
-      <div class="avis-item">
-          <div class="stars">★★★★★</div>
-          <p>"Service impeccable, j’ai récupéré mon fichier MDM en moins de 10 minutes !"</p>
-          <strong>- Junior M.</strong>
-      </div>
+  <div class="avis-slider">
+      <div class="avis-track">
 
-      <div class="avis-item">
-          <div class="stars">★★★★★</div>
-          <p>"Les prix sont abordables et le support est rapide. Je recommande à 100%."</p>
-          <strong>- Patrick Tech</strong>
-      </div>
+          <div class="avis-item">
+              <div class="stars">★★★★★</div>
+              <p>"Service impeccable, j’ai récupéré mon fichier MDM en moins de 10 minutes !"</p>
+              <strong>- Junior M.</strong>
+          </div>
 
-      <div class="avis-item">
-          <div class="stars">★★★★★</div>
-          <p>"J'ai acheté un SSD et un clavier, livraison rapide et produits impeccables."</p>
-          <strong>- Grâce A.</strong>
-      </div>
+          <div class="avis-item">
+              <div class="stars">★★★★★</div>
+              <p>"Les prix sont abordables et le support est rapide. Je recommande."</p>
+              <strong>- Patrick Tech</strong>
+          </div>
 
-      <div class="avis-item">
-          <div class="stars">★★★★★</div>
-          <p>"Boutique sérieuse, fichiers MDM fiables et assistance excellente."</p>
-          <strong>- Kevin M.</strong>
+          <div class="avis-item">
+              <div class="stars">★★★★★</div>
+              <p>"J'ai acheté un SSD et un clavier, livraison rapide et produits impeccables."</p>
+              <strong>- Grâce A.</strong>
+          </div>
+
+          <div class="avis-item">
+              <div class="stars">★★★★★</div>
+              <p>"Boutique sérieuse, fichiers MDM fiables et assistance excellente."</p>
+              <strong>- Kevin M.</strong>
+          </div>
+
       </div>
   </div>
 </section>
@@ -176,21 +180,22 @@
     <a href="https://www.youtube.com/@josanovictech12" target="_blank"><img src="https://i15.tvoysad.ru/2025/09/28/channels4_profilef982f6638e70a20e.jpg" alt="YouTube"></a>
   </div>
 <script>
-  // Slide automatique des avis
-  let indexAvis = 0;
+let currentSlide = 0;
 
-  function slideAvis() {
-    const carousel = document.getElementById("avisCarousel");
-    const items = document.querySelectorAll(".avis-item");
+function showNextAvis() {
+    const track = document.querySelector(".avis-track");
+    const totalSlides = document.querySelectorAll(".avis-item").length;
 
-    indexAvis++;
-    if (indexAvis >= items.length) indexAvis = 0;
+    currentSlide++;
+    if (currentSlide >= totalSlides) currentSlide = 0;
 
-    carousel.style.transform = "translateX(-" + indexAvis * 100 + "%)";
-  }
+    track.style.transform = "translateX(-" + currentSlide * 100 + "%)";
+}
 
-  setInterval(slideAvis, 4000); // tous les 4 secondes
+// change d’avis toutes les 4 seconds
+setInterval(showNextAvis, 4000);
 </script>
+
 
 </body>
 </html>
