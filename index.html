@@ -126,27 +126,35 @@
     </div>
   </section>
 
-  <section class="avis fade-up">
-  <h2 class="fade-up">Ce que disent nos clients</h2>
+<section class="avis-section fade-up">
+  <h2 class="fade-title">⭐ Ce que disent nos clients ⭐</h2>
 
-  <div class="avis-container">
-    <div class="avis-card fade-up delay-1">
-      <p>"Service impeccable, j’ai récupéré mon fichier MDM en moins de 10 minutes !"</p>
-      <strong>- Junior M.</strong>
-    </div>
+  <div class="avis-carousel" id="avisCarousel">
+      <div class="avis-item">
+          <div class="stars">★★★★★</div>
+          <p>"Service impeccable, j’ai récupéré mon fichier MDM en moins de 10 minutes !"</p>
+          <strong>- Junior M.</strong>
+      </div>
 
-    <div class="avis-card fade-up delay-2">
-      <p>"Les prix sont abordables et le support est vraiment rapide. Je recommande."</p>
-      <strong>- Patrick Tech</strong>
-    </div>
+      <div class="avis-item">
+          <div class="stars">★★★★★</div>
+          <p>"Les prix sont abordables et le support est rapide. Je recommande à 100%."</p>
+          <strong>- Patrick Tech</strong>
+      </div>
 
-    <div class="avis-card fade-up delay-3">
-      <p>"Super boutique ! J'ai acheté un SSD et tout fonctionne parfaitement."</p>
-      <strong>- Grâce A.</strong>
-    </div>
+      <div class="avis-item">
+          <div class="stars">★★★★★</div>
+          <p>"J'ai acheté un SSD et un clavier, livraison rapide et produits impeccables."</p>
+          <strong>- Grâce A.</strong>
+      </div>
+
+      <div class="avis-item">
+          <div class="stars">★★★★★</div>
+          <p>"Boutique sérieuse, fichiers MDM fiables et assistance excellente."</p>
+          <strong>- Kevin M.</strong>
+      </div>
   </div>
 </section>
-
 
   <section class="newsletter">
     <h2>Abonnez-vous à notre newsletter</h2>
@@ -167,6 +175,22 @@
     <a href="https://wa.me/243999160981" target="_blank"><img src="https://i13.tvoysad.ru/2025/09/28/wtp5d23fbb74a839ec8.jpg" alt="whatsapp"></a>
     <a href="https://www.youtube.com/@josanovictech12" target="_blank"><img src="https://i15.tvoysad.ru/2025/09/28/channels4_profilef982f6638e70a20e.jpg" alt="YouTube"></a>
   </div>
+<script>
+  // Slide automatique des avis
+  let indexAvis = 0;
+
+  function slideAvis() {
+    const carousel = document.getElementById("avisCarousel");
+    const items = document.querySelectorAll(".avis-item");
+
+    indexAvis++;
+    if (indexAvis >= items.length) indexAvis = 0;
+
+    carousel.style.transform = "translateX(-" + indexAvis * 100 + "%)";
+  }
+
+  setInterval(slideAvis, 4000); // tous les 4 secondes
+</script>
 
 </body>
 </html>
