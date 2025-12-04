@@ -1,0 +1,62 @@
+/* Animation Fade + Slide */
+.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 1s ease forwards;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Section AVIS */
+.avis-section {
+  padding: 60px 20px;
+  background: #f2f6ff;
+  text-align: center;
+}
+
+.fade-title {
+  font-size: 2em;
+  margin-bottom: 25px;
+  font-weight: bold;
+  color: #002855;
+  animation-delay: 0.2s;
+}
+
+/* Carousel container */
+.avis-carousel {
+  max-width: 800px;
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Avis items */
+.avis-item {
+  background: white;
+  margin: 10px;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  min-height: 150px;
+  animation: fadeUp 1s ease forwards;
+}
+
+.stars {
+  color: #ffcc00;
+  font-size: 1.4em;
+  margin-bottom: 10px;
+}
+
+/* Animation défilante */
+@keyframes slide {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-100%); }
+  50% { transform: translateX(-200%); }
+  75% { transform: translateX(-300%); }
+  100% { transform: translateX(0); }
+}
