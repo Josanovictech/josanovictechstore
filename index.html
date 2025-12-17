@@ -127,11 +127,24 @@
   </section>
 <section class="cadeau-section">
   <h2>🎁 Jeu Cadeau Fin d’Année</h2>
-  <p>Tente ta chance et gagne une réduction ou un bonus 🎉</p>
+  <p>Abonne-toi à notre chaîne YouTube pour jouer 🎥</p>
 
-  <div class="cadeau-box" id="cadeauBox">🎁</div>
+  <!-- Bouton YouTube -->
+  <a href="https://www.youtube.com/@JosanovicTech" target="_blank" class="yt-btn">
+    🔔 S’abonner sur YouTube
+  </a>
 
-  <button class="cadeau-btn" onclick="jouer()">Tenter ma chance</button>
+  <!-- Confirmation -->
+  <div class="confirm-sub">
+    <input type="checkbox" id="confirmSub">
+    <label for="confirmSub">Je confirme que je suis abonné</label>
+  </div>
+
+  <div class="cadeau-box">🎁</div>
+
+  <button class="cadeau-btn" id="jouerBtn" disabled onclick="jouer()">
+    Tenter ma chance
+  </button>
 
   <p class="cadeau-result" id="cadeauResult"></p>
 </section>
@@ -209,6 +222,13 @@ setInterval(showNextAvis, 4000);
 <script>
 let dejaJoue = false;
 
+const checkbox = document.getElementById("confirmSub");
+const jouerBtn = document.getElementById("jouerBtn");
+
+checkbox.addEventListener("change", function () {
+  jouerBtn.disabled = !this.checked;
+});
+
 function jouer() {
   if (dejaJoue) {
     document.getElementById("cadeauResult").innerHTML =
@@ -217,19 +237,28 @@ function jouer() {
   }
 
   const cadeaux = [
-    "🎉 Bravo ! -10% sur ta prochaine commande",
-    "🎁 Cadeau : 1 fichier MDM GRATUIT",
-    "🔥 -15% sur un logiciel GSM",
-    "😅 Pas gagné cette fois, réessaie demain",
-    "🎊 Bonus spécial fin d’année ! Contacte-nous sur WhatsApp"
+    "🎉 J’ai gagné -10% sur ma prochaine commande",
+    "🎁 J’ai gagné 1 fichier MDM GRATUIT",
+    "🔥 J’ai gagné -15% sur un logiciel GSM",
+    "🎊 J’ai gagné un bonus spécial fin d’année",
+    "😅 Je n’ai pas gagné cette fois"
   ];
 
   const resultat = cadeaux[Math.floor(Math.random() * cadeaux.length)];
   document.getElementById("cadeauResult").innerHTML = resultat;
 
+  // Numéro WhatsApp (MODIFIE ICI si besoin)
+  const numero = "243999160981";
+
+  const message = `Bonjour JosanovicTech 👋%0A%0AJe viens de jouer au *Jeu Cadeau* sur votre site 🎁%0A%0A👉 Résultat : ${resultat}%0A%0ANom : %0ANuméro : %0A%0AMerci 🙏`;
+
+  // Ouvre WhatsApp automatiquement
+  window.open(`https://wa.me/${numero}?text=${message}`, "_blank");
+
   dejaJoue = true;
 }
 </script>
+
 
 </body>
 </html>
