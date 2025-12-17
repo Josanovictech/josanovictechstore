@@ -236,7 +236,7 @@ function jouer() {
     return;
   }
 
-  const cadeaux = [
+  const cadeau = [
     "🎉 J’ai gagné -10% sur ma prochaine commande",
     "🎁 J’ai gagné 1 fichier MDM GRATUIT",
     "🔥 J’ai gagné -15% sur un logiciel GSM",
@@ -244,7 +244,7 @@ function jouer() {
     "😅 Je n’ai pas gagné cette fois"
   ];
 
-  const resultat = cadeaux[Math.floor(Math.random() * cadeaux.length)];
+  const resultat = cadeau[Math.floor(Math.random() * cadeaux.length)];
   document.getElementById("cadeauxResult").innerHTML = resultat;
 
   // Numéro WhatsApp (MODIFIE ICI si besoin)
