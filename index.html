@@ -206,6 +206,30 @@ function showNextAvis() {
 setInterval(showNextAvis, 8000);
 </script>
 
+<script>
+let dejaJoue = false;
+
+function jouer() {
+  if (dejaJoue) {
+    document.getElementById("cadeauResult").innerHTML =
+      "⏳ Tu as déjà joué aujourd’hui. Reviens demain 😉";
+    return;
+  }
+
+  const cadeaux = [
+    "🎉 Bravo ! -10% sur ta prochaine commande",
+    "🎁 Cadeau : 1 fichier MDM GRATUIT",
+    "🔥 -15% sur un logiciel GSM",
+    "😅 Pas gagné cette fois, réessaie demain",
+    "🎊 Bonus spécial fin d’année ! Contacte-nous sur WhatsApp"
+  ];
+
+  const resultat = cadeaux[Math.floor(Math.random() * cadeaux.length)];
+  document.getElementById("cadeauResult").innerHTML = resultat;
+
+  dejaJoue = true;
+}
+</script>
 
 </body>
 </html>
