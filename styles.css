@@ -21,6 +21,51 @@
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
+/* JEU CADEAU */
+.cadeau-section {
+  text-align: center;
+  padding: 50px 20px;
+  background: linear-gradient(135deg, #ff9800, #ff5722);
+  color: white;
+}
+
+.cadeau-box {
+  font-size: 80px;
+  margin: 20px auto;
+  cursor: pointer;
+  animation: shake 2s infinite;
+}
+
+.cadeau-btn {
+  padding: 12px 25px;
+  font-size: 16px;
+  background: #fff;
+  color: #ff5722;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.cadeau-btn:hover {
+  background: #ffe0b2;
+}
+
+.cadeau-result {
+  margin-top: 15px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Animation */
+@keyframes shake {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(5deg); }
+  50% { transform: rotate(-5deg); }
+  75% { transform: rotate(5deg); }
+  100% { transform: rotate(0deg); }
+}
+
 
 .stars {
   color: #ffcc00;
