@@ -220,44 +220,53 @@ setInterval(showNextAvis, 4000);
 </script>
 
 <script>
-let dejaJoue = false;
+document.addEventListener("DOMContentLoaded", function () {
 
-const checkbox = document.getElementById("confirmSub");
-const jouerBtn = document.getElementById("jouerBtn");
+  let dejaJoue = false;
 
-checkbox.addEventListener("change", function () {
-  jouerBtn.disabled = !this.checked;
-});
+  const checkbox = document.getElementById("confirmSub");
+  const jouerBtn = document.getElementById("jouerBtn");
+  const resultBox = document.getElementById("cadeauResult");
 
-function jouer() {
-  if (dejaJoue) {
-    document.getElementById("cadeauResult").innerHTML =
-      "⏳ Tu as déjà joué aujourd’hui. Reviens demain 😉";
+  if (!checkbox || !jouerBtn) {
+    console.error("Éléments du jeu non trouvés");
     return;
   }
 
-  const cadeau = [
-    "🎉 J’ai gagné -10% sur ma prochaine commande",
-    "🎁 J’ai gagné 1 fichier MDM GRATUIT",
-    "🔥 J’ai gagné -15% sur un logiciel GSM",
-    "🎊 J’ai gagné un bonus spécial fin d’année",
-    "😅 Je n’ai pas gagné cette fois"
-  ];
+  checkbox.addEventListener("change", function () {
+    jouerBtn.disabled = !this.checked;
+  });
 
-  const resultat = cadeau[Math.floor(Math.random() * cadeaux.length)];
-  document.getElementById("cadeauxResult").innerHTML = resultat;
+  window.jouer = function () {
 
-  // Numéro WhatsApp (MODIFIE ICI si besoin)
-  const numero = "243999160981";
+    if (dejaJoue) {
+      resultBox.innerHTML = "⏳ Tu as déjà joué aujourd’hui. Reviens demain 😉";
+      return;
+    }
 
-  const message = `Bonjour JosanovicTech 👋%0A%0AJe viens de jouer au *Jeu Cadeau* sur votre site 🎁%0A%0A👉 Résultat : ${resultat}%0A%0ANom : %0ANuméro : %0A%0AMerci 🙏`;
+    const cadeaux = [
+      "🎉 J’ai gagné -10% sur ma prochaine commande",
+      "🎁 J’ai gagné 1 fichier MDM GRATUIT",
+      "🔥 J’ai gagné -15% sur un logiciel GSM",
+      "🎊 J’ai gagné un bonus spécial fin d’année",
+      "😅 Je n’ai pas gagné cette fois"
+    ];
 
-  // Ouvre WhatsApp automatiquement
-  window.open(`https://wa.me/${numero}?text=${message}`, "_blank");
+    const resultat = cadeaux[Math.floor(Math.random() * cadeaux.length)];
+    resultBox.innerHTML = resultat;
 
-  dejaJoue = true;
-}
+    const numero = "243999160981"; // 🔴 REMPLACE par ton numéro WhatsApp
+
+    const message = `Bonjour JosanovicTech 👋%0A%0AJe viens de jouer au *Jeu Cadeau* 🎁%0A👉 Résultat : ${resultat}%0A%0ANom : %0ANuméro : %0A%0AMerci 🙏`;
+
+    window.open(`https://wa.me/${numero}?text=${message}`, "_blank");
+
+    dejaJoue = true;
+  };
+
+});
 </script>
+
 
 
 </body>
