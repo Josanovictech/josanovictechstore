@@ -95,9 +95,9 @@
 /* =====================
    VERSION MOBILE
 ===================== */
+<!--
 @media (max-width: 768px) {
-
-  body {
+   body {
     font-size: 15px;
     line-height: 1.6;
   }
@@ -138,7 +138,7 @@
     padding: 14px;
     font-size: 16px;
   }
-
+-->
 }
 
 .float {
