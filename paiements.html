@@ -21,34 +21,33 @@
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
 
-    window.envoyerPaiement = async function() {
-      const nom = document.getElementById("nom").value;
-      const numero = document.getElementById("numero").value;
-      const reference = document.getElementById("reference").value;
-      const email = document.getElementById("email").value;
+window.envoyerPaiement = async function() {
+  const nom = document.getElementById("nom").value;
+  const numero = document.getElementById("numero").value;
+  const reference = document.getElementById("reference").value;
+  const email = document.getElementById("email").value;
 
-      if(!nom || !numero || !reference || !email){
-        alert("Veuillez remplir tous les champs !");
-        return;
-      }
+  if(!nom || !numero || !reference || !email){
+    alert("Veuillez remplir tous les champs !");
+    return;
+  }
 
-      try {
-        await addDoc(collection(db, "paiements"), {
-          nom: nom,
-          numero: numero,
-          reference: reference,
-          email: email,
-          statut: "en_attente",
-          date: new Date()
-        });
+  try {
+    await addDoc(collection(db, "paiements"), {
+      nom: nom,
+      numero: numero,
+      reference: reference,
+      email: email,
+      statut: "en_attente",
+      date: new Date()
+    });
 
-        alert("Paiement envoyé avec succès ! Nous allons vérifier.");
-        document.getElementById("form").reset();
+    window.location.href = "merci.html";
 
-      } catch (e) {
-        alert("Erreur: " + e);
-      }
-    }
+  } catch (e) {
+    alert("Erreur: " + e);
+  }
+}
 
   </script>
 
