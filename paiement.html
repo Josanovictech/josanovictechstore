@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Paiement - JosanovicTech</title>
+  <meta charset="UTF-8">
+  <script type="module">
+
+    // 🔥 CONFIG FIREBASE (ta config actuelle)
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyBU7IL6Wm2F89ZK5qbmGIMtutQhBA4VtUo",
+      authDomain: "josanovictechauth.firebaseapp.com",
+      projectId: "josanovictechauth",
+      storageBucket: "josanovictechauth.firebasestorage.app",
+      messagingSenderId: "407987063355",
+      appId: "1:407987063355:web:115181e31708f4ac766a1e"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    window.envoyerPaiement = async function() {
+      const nom = document.getElementById("nom").value;
+      const numero = document.getElementById("numero").value;
+      const reference = document.getElementById("reference").value;
+      const email = document.getElementById("email").value;
+
+      if(!nom || !numero || !reference || !email){
+        alert("Veuillez remplir tous les champs !");
+        return;
+      }
+
+      try {
+        await addDoc(collection(db, "paiements"), {
+          nom: nom,
+          numero: numero,
+          reference: reference,
+          email: email,
+          statut: "en_attente",
+          date: new Date()
+        });
+
+        alert("Paiement envoyé avec succès ! Nous allons vérifier.");
+        document.getElementById("form").reset();
+
+      } catch (e) {
+        alert("Erreur: " + e);
+      }
+    }
+
+  </script>
+
+  <style>
+    body {
+      font-family: Arial;
+      background: #0f172a;
+      color: white;
+      text-align: center;
+      padding: 40px;
+    }
+
+    .box {
+      background: #1e293b;
+      padding: 30px;
+      border-radius: 10px;
+      width: 350px;
+      margin: auto;
+    }
+
+    input {
+      width: 90%;
+      padding: 10px;
+      margin: 8px;
+      border-radius: 5px;
+      border: none;
+    }
+
+    button {
+      background: #3b82f6;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #2563eb;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>💳 Paiement Mobile Money</h1>
+
+<div class="box">
+
+  <p>Envoyez <strong>3$</strong> à :</p>
+  <p>📱 Airtel Money : 0999160981</p>
+  <p>📱 Orange Money : 0845346778</p>
+
+  <hr>
+
+  <form id="form">
+    <input type="text" id="nom" placeholder="votre nom du compte airtel money"><br>
+    <input type="text" id="numero" placeholder="Numéro utilisé pour payer"><br>
+    <input type="text" id="reference" placeholder="Référence transaction"><br>
+    <input type="email" id="email" placeholder="Votre email"><br>
+    <button type="button" onclick="envoyerPaiement()">J'ai payé</button>
+  </form>
+
+</div>
+
+</body>
+</html>
