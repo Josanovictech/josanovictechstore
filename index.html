@@ -292,6 +292,55 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 </script>
 
-  
+ <!-- 🌍 Language Switcher -->
+<div style="position:fixed; top:20px; right:20px; z-index:1000;">
+  <button onclick="setLang('fr')">FR</button>
+  <button onclick="setLang('en')">EN</button>
+</div>
+
+<section class="banner">
+  <h1 id="title">Votre Hub Tech & GSM Professionnel</h1>
+  <p id="subtitle">MDM • GSM • Accessoires • Maintenance</p>
+  <a href="paiement.html" class="btn" id="buyBtn">Acheter le Guide PDF - 3$</a>
+</section>
+
+<footer>
+  <p>© 2026 JosanovicTech</p>
+</footer>
+
+<script>
+function toggleMenu(){
+  document.getElementById("menu").classList.toggle("active");
+}
+
+// 🌍 LANGUE COMPLETE
+function setLang(lang){
+
+  if(lang === 'en'){
+    document.getElementById("title").innerText = "Your Tech & GSM Hub";
+    document.getElementById("subtitle").innerText = "MDM • GSM • Accessories • Maintenance";
+    document.getElementById("buyBtn").innerText = "Buy PDF Guide - 3$";
+
+    document.getElementById("nav-home").innerText = "Home";
+    document.getElementById("nav-products").innerText = "Products";
+    document.getElementById("nav-services").innerText = "Services";
+    document.getElementById("nav-payment").innerText = "Payment";
+    document.getElementById("nav-contact").innerText = "Contact";
+  }
+
+  if(lang === 'fr'){
+    document.getElementById("title").innerText = "Votre Hub Tech & GSM Professionnel";
+    document.getElementById("subtitle").innerText = "MDM • GSM • Accessoires • Maintenance";
+    document.getElementById("buyBtn").innerText = "Acheter le Guide PDF - 3$";
+
+    document.getElementById("nav-home").innerText = "Accueil";
+    document.getElementById("nav-products").innerText = "Produits";
+    document.getElementById("nav-services").innerText = "Services";
+    document.getElementById("nav-payment").innerText = "Paiement";
+    document.getElementById("nav-contact").innerText = "Contact";
+  }
+}
+</script>
+ 
 </body>
 </html>
