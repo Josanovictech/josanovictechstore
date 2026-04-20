@@ -281,6 +281,16 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 
 
+<script>
+  const cards = document.querySelectorAll('.card');
 
+  cards.forEach((card, index) => {
+    card.style.opacity = 0;
+    setTimeout(() => {
+      card.style.transition = "0.5s";
+      card.style.opacity = 1;
+    }, index * 200);
+  });
+</script>
 </body>
 </html>
