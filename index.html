@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
@@ -292,5 +292,78 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 </script>
 
+<!-- 🌍 LANGUE + 🌙 DARK MODE -->
+<script>
+
+// 🌍 Traductions
+const translations = {
+  fr: {
+    title: "JosanovicTech – Solutions Digitales & GSM",
+    subtitle: "Votre solution fiable pour Fichiers MDM, Logiciels GSM, Accessoires PC et Maintenance",
+    explore: "Explorer nos produits",
+    frp: "FRP Bypass",
+    accueil: "Accueil",
+    produits: "Produits",
+    mdm: "Fichiers MDM",
+    logiciels: "Logiciels",
+    accessoires: "Accessoires",
+    services: "Services",
+    contact: "Contact",
+    espace: "Espace Client"
+  },
+  en: {
+    title: "JosanovicTech – Digital & GSM Solutions",
+    subtitle: "Your trusted solution for MDM Files, GSM Tools, PC Accessories and Maintenance",
+    explore: "Explore our products",
+    frp: "FRP Bypass",
+    accueil: "Home",
+    produits: "Products",
+    mdm: "MDM Files",
+    logiciels: "Software",
+    accessoires: "Accessories",
+    services: "Services",
+    contact: "Contact",
+    espace: "Client Area"
+  }
+};
+
+// 🌍 Appliquer langue
+function setLang(lang){
+  localStorage.setItem("lang", lang);
+
+  document.querySelector(".hero h1").innerText = translations[lang].title;
+  document.querySelector(".hero p").innerText = translations[lang].subtitle;
+
+  document.querySelectorAll(".hero .btn")[0].innerText = translations[lang].explore;
+  document.querySelectorAll(".hero .btn")[1].innerText = translations[lang].frp;
+
+  const nav = document.querySelectorAll("nav ul li a");
+
+  nav[0].innerText = translations[lang].accueil;
+  nav[1].innerText = translations[lang].produits;
+  nav[2].innerText = translations[lang].mdm;
+  nav[3].innerText = translations[lang].logiciels;
+  nav[4].innerText = translations[lang].accessoires;
+  nav[5].innerText = translations[lang].services;
+  nav[6].innerText = translations[lang].contact;
+  nav[7].innerText = translations[lang].espace;
+}
+
+// 🌙 DARK MODE
+function toggleDark(){
+  const dark = document.body.classList.toggle("dark-mode");
+  localStorage.setItem("dark", dark);
+}
+
+// 🌙 Charger mode sombre
+if(localStorage.getItem("dark") === "true"){
+  document.body.classList.add("dark-mode");
+}
+
+// 🌍 Charger langue
+const savedLang = localStorage.getItem("lang") || "fr";
+setLang(savedLang);
+
+</script>
 </body>
 </html>
