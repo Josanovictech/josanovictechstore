@@ -292,52 +292,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 </script>
 
-  <script>
-// 🌍 LANG SWITCHER MANUEL
-function setLang(lang){
-
-  if(lang === 'en'){
-    document.querySelector('.hero h1').innerText = "Welcome to JosanovicTech Store";
-    document.querySelector('.hero p').innerText = "Your trusted solution for MDM Files, GSM Tools, PC Accessories and Maintenance";
-    document.querySelector('.hero .btn').innerText = "Explore our products";
-  }
-
-  if(lang === 'fr'){
-    document.querySelector('.hero h1').innerText = "Bienvenue chez Josanovictech Store";
-    document.querySelector('.hero p').innerText = "Votre solution fiable pour Fichiers MDM, Logiciels GSM, Accessoires PC et Maintenance";
-    document.querySelector('.hero .btn').innerText = "Explorer nos produits";
-  }
-
-}
-
-// 🌙 DARK MODE TOGGLE
-const darkToggle = document.createElement('button');
-darkToggle.innerText = "🌙";
-darkToggle.style.position = "fixed";
-darkToggle.style.top = "20px";
-darkToggle.style.left = "20px";
-darkToggle.style.padding = "10px";
-darkToggle.style.borderRadius = "50%";
-darkToggle.style.border = "none";
-darkToggle.style.cursor = "pointer";
-darkToggle.style.zIndex = "1000";
-document.body.appendChild(darkToggle);
-
-let darkMode = false;
-
-darkToggle.onclick = () => {
-  darkMode = !darkMode;
-
-  if(darkMode){
-    document.body.style.background = "#0d1b2a";
-    document.body.style.color = "white";
-  } else {
-    document.body.style.background = "#1cb349";
-    document.body.style.color = "#333";
-  }
-}
-</script>
-
   
 </body>
 </html>
