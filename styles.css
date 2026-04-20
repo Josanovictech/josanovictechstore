@@ -100,3 +100,21 @@
   transform: scale(1.2);
   margin-right: 8px;
 }
+/* DARK MODE */
+.dark-mode {
+  background: #0d1b2a !important;
+  color: white !important;
+}
+
+.dark-mode section,
+.dark-mode .card,
+.dark-mode .avis,
+.dark-mode .newsletter {
+  background: #1b263b !important;
+  color: white !important;
+}
+
+.dark-mode header,
+.dark-mode footer {
+  background: #000814 !important;
+}
