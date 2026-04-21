@@ -45,26 +45,27 @@ z-index:1000;
 <h3>JosanovicTech</h3>
 <nav>
 <ul>
-<li><a href="index.html">Accueil</a></li>
-<li><a href="produits.html">Produits</a></li>
-<li><a href="mdm.html">Fichiers MDM</a></li>
-<li><a href="logiciels.html">Logiciels</a></li>
-<li><a href="accessoires.html">Accessoires</a></li>
-<li><a href="services.html">Services</a></li>
-<li><a href="contact.html">Contact</a></li>
-<li><a href="client/login.html">Espace Client</a></li>
+<li><a href="index.html" id="nav-home">Accueil</a></li>
+<li><a href="produits.html" id="nav-products">Produits</a></li>
+<li><a href="mdm.html" id="nav-mdm">Fichiers MDM</a></li>
+<li><a href="logiciels.html" id="nav-soft">Logiciels</a></li>
+<li><a href="accessoires.html" id="nav-acc">Accessoires</a></li>
+<li><a href="services.html" id="nav-serv">Services</a></li>
+<li><a href="contact.html" id="nav-contact">Contact</a></li>
+<li><a href="client/login.html" id="nav-client">Espace Client</a></li>
 </ul>
 </nav>
 </header>
 
 <section class="hero">
 <h1 id="title">JosanovicTech – Solutions Digitales & GSM</h1>
-<p id="desc">Votre solution fiable pour MDM, GSM et accessoires</p>
-<a href="produits.html" class="btn">Explorer nos produits</a>
-<a href="frpbypass.html" class="btn">FRP Bypass</a>
+<p id="subtitle">Votre solution fiable pour Fichiers MDM, Logiciels GSM...</p>
+
+<a href="produits.html" class="btn" id="btn-explore">Explorer nos produits</a>
+<a href="frpbypass.html" class="btn" id="btn-frp">FRP Bypass</a>
 </section>
 <section>
-<h2>🔥 Produit populaire</h2>
+<h2 id="cat-title">produit populaire</h2>
 
 <div class="card">
 <h3>Guide PDF Tech</h3>
@@ -74,7 +75,7 @@ z-index:1000;
 
 </section>
 <section>
-  <h2>Nos Catégories</h2>
+  <h2 id="cat-title">Nos Catégories</h2>
 
   <div class="grid">
 
@@ -87,6 +88,7 @@ z-index:1000;
     <!-- GSM -->
     <div class="card">
       <h3>Logiciels GSM</h3>
+      <a href="https://imgbb.com/"><img src="https://i.ibb.co/Q7Bb2tQJ/jjjj.png" alt="jjjj" border="0"></a>
       <p>Outils de déblocage, FRP, flash et plus.</p>
       <a class="btn" href="logiciels.html">Voir</a>
     </div>
@@ -100,32 +102,53 @@ z-index:1000;
 
     <!-- MAINTENANCE -->
     <div class="card">
-      <h3>Maintenance</h3>
+      <h3>Maintenance Electronique</h3>
+      <a href="https://ibb.co/hJhnkryC"><img src="https://i.ibb.co/pBGsgNxn/maintenance-informatique-2560x1706-1.png" alt="maintenance-informatique-2560x1706-1" border="0"></a>
       <p>Réparation de téléphones, ordinateurs et plus.</p>
-      <a class="btn" href="services.html">Voir</a>
+      <a class="btn" href="services.html">voir nos services de maintenance</a>
     </div>
 
   </div>
 </section>
 
 <section>
-<h2>⭐ Avis clients</h2>
+<h2 id="avis-title">⭐ Ce que disent nos clients ⭐</h2>
 
-<p>★★★★★ "Service ultra rapide 🔥" - Junior</p>
-<p>★★★★★ "Très fiable et professionnel" - Patrick</p>
-<p>★★★★★ "Produits de qualité" - Grâce</p>
-<p>★★★★★ "Support rapide WhatsApp" - Kevin</p>
-<p>★★★★★ "Je recommande à 100%" - Alain</p>
+<div class="avis-slider">
+      <div class="avis-track">
 
+          <div class="avis-item">
+              <div class="stars">★★★★★</div>
+              <p>"Service impeccable, j’ai récupéré mon fichier MDM en moins de 10 minutes !"</p>
+              <strong>- Junior M.</strong>
+          </div>
+
+          <div class="avis-item">
+              <div class="stars">★★★★★</div>
+              <p>"Les prix sont abordables et le support est rapide. Je recommande."</p>
+              <strong>- Patrick Tech</strong>
+          </div>
+
+          <div class="avis-item">
+              <div class="stars">★★★★★</div>
+              <p>"J'ai acheté un SSD et un clavier, livraison rapide et produits impeccables."</p>
+              <strong>- Grâce A.</strong>
+          </div>
+
+          <div class="avis-item">
+              <div class="stars">★★★★★</div>
+              <p>"Boutique sérieuse, fichiers MDM fiables et assistance excellente."</p>
+              <strong>- Kevin M.</strong>
+          </div>
 </section>
 
 <section>
-<h2 id="news">Newsletter</h2>
+<h2 id="news-title">Abonnez-vous à notre newsletter</h2>
 <button class="btn" id="sub">S’abonner</button>
 </section>
 
 <footer>
-<p id="foot">©2026 tous droits réservés</p>
+<p id="footer-text">©2026 powered by josanovic. tout droit reserve.</p>
 </footer>
 
 <script>
@@ -183,12 +206,64 @@ foot:"©2026 all rights reserved"
 
 // 🌍 SWITCH LANG
 function setLang(lang){
-localStorage.setItem("lang", lang);
 
-for(let key in T[lang]){
-let el = document.getElementById(key);
-if(el) el.innerText = T[lang][key];
-}
+  localStorage.setItem("lang", lang);
+
+  if(lang === "en"){
+
+    // MENU
+    document.getElementById("nav-home").innerText = "Home";
+    document.getElementById("nav-products").innerText = "Products";
+    document.getElementById("nav-mdm").innerText = "MDM Files";
+    document.getElementById("nav-soft").innerText = "Software";
+    document.getElementById("nav-acc").innerText = "Accessories";
+    document.getElementById("nav-serv").innerText = "Services";
+    document.getElementById("nav-contact").innerText = "Contact";
+    document.getElementById("nav-client").innerText = "Client Area";
+
+    // HERO
+    document.getElementById("title").innerText = "JosanovicTech – Digital & GSM Solutions";
+    document.getElementById("subtitle").innerText = "Your trusted solution for MDM, GSM and accessories";
+    document.getElementById("btn-explore").innerText = "Explore our products";
+    document.getElementById("btn-frp").innerText = "FRP Bypass";
+
+    // SECTIONS
+    document.getElementById("cat-title").innerText = "news",
+    document.getElementById("avis-title").innerText = "⭐ What our clients say ⭐";
+    document.getElementById("news-title").innerText = "Subscribe to our newsletter";
+
+    // FOOTER
+    document.getElementById("footer-text").innerText = "©2026 all rights reserved";
+
+  }
+
+  if(lang === "fr"){
+
+    // MENU
+    document.getElementById("nav-home").innerText = "Accueil";
+    document.getElementById("nav-products").innerText = "Produits";
+    document.getElementById("nav-mdm").innerText = "Fichiers MDM";
+    document.getElementById("nav-soft").innerText = "Logiciels";
+    document.getElementById("nav-acc").innerText = "Accessoires";
+    document.getElementById("nav-serv").innerText = "Services";
+    document.getElementById("nav-contact").innerText = "Contact";
+    document.getElementById("nav-client").innerText = "Espace Client";
+
+    // HERO
+    document.getElementById("title").innerText = "JosanovicTech – Solutions Digitales & GSM";
+    document.getElementById("subtitle").innerText = "Votre solution fiable pour Fichiers MDM, Logiciels GSM et Accessoires";
+    document.getElementById("btn-explore").innerText = "Explorer nos produits";
+    document.getElementById("btn-frp").innerText = "FRP Bypass";
+
+    // SECTIONS
+    document.getElementById("cat-title").innerText = "Nouveauté",
+    document.getElementById("avis-title").innerText = "⭐ Ce que disent nos clients ⭐";
+    document.getElementById("news-title").innerText = "Abonnez-vous à notre newsletter";
+
+    // FOOTER
+    document.getElementById("footer-text").innerText = "©2026 powered by josanovic. tous droits réservés";
+
+  }
 }
 
 // 🌙 DARK MODE
