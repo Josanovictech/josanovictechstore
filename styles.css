@@ -118,3 +118,23 @@
 .dark-mode footer {
   background: #000814 !important;
 }
+.card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.card {
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 10px;
+}
