@@ -138,3 +138,19 @@
   display: inline-block;
   margin-top: 10px;
 }
+.logo-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-box img {
+  height: 50px;
+  border-radius: 10px;
+}
+
+.logo-box span {
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+}
