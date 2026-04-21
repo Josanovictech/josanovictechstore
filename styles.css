@@ -145,11 +145,13 @@
 }
 
 .logo-box img {
-  height: 45px;
+  height: 50px;
+  border-radius: 10px;
 }
 
 .logo-box span {
-  font-size: 15px;
+  color: white;
   font-weight: bold;
+  font-size: 18px;
 }
 
