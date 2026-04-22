@@ -1,265 +1,331 @@
-/* SLIDER STRUCTURE */
-.avis-slider {
-  width: 100%;
-  max-width: 700px;
-  margin: auto;
-  overflow: hidden;
-  position: relative;
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JosanovicTech – Solutions Digitales & GSM</title>
+
+<style>
+
+body {
+  margin:0;
+  font-family: Arial;
+  background:#9c0fdd7a;
+  transition:0.3s;
 }
 
-/* La track doit faire 100% × nombre d’avis */
-.avis-track {
-  display: flex;
-  transition: 0.7s ease;
-}
-
-/* Chaque avis prend 100% du slider */
-.avis-item {
-  min-width: 100%;
-  background: white;
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-/* JEU CADEAU */
-.cadeau-section {
-  text-align: center;
-  padding: 50px 20px;
-  background: linear-gradient(135deg, #ff9800, #ff5722);
-  color: white;
-}
-
-.cadeau-box {
-  font-size: 80px;
-  margin: 20px auto;
-  cursor: pointer;
-  animation: shake 2s infinite;
-}
-
-.cadeau-btn {
-  padding: 12px 25px;
-  font-size: 16px;
-  background: #fff;
-  color: #ff5722;
-  border: none;
-  border-radius: 30px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.cadeau-btn:hover {
-  background: #ffe0b2;
-}
-
-.cadeau-result {
-  margin-top: 15px;
-  font-size: 18px;
-  font-weight: bold;
-}
-
-/* Animation */
-@keyframes shake {
-  0% { transform: rotate(0deg); }
-  25% { transform: rotate(5deg); }
-  50% { transform: rotate(-5deg); }
-  75% { transform: rotate(5deg); }
-  100% { transform: rotate(0deg); }
-}
-
-
-.stars {
-  color: #ffcc00;
-  font-size: 1.4em;
-  margin-bottom: 10px;
-}
-.yt-btn {
-  display: inline-block;
-  margin: 15px 0;
-  padding: 12px 25px;
-  background: #ff0000;
-  color: white;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.confirm-sub {
-  margin: 15px 0;
-  font-size: 16px;
-}
-.card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-}
-
-.confirm-sub input {
-  transform: scale(1.2);
-  margin-right: 8px;
-}
 /* DARK MODE */
-.dark-mode {
-  background: #0d1b2a !important;
-  color: white !important;
+.dark {
+  background:#0d1b2a;
+  color:white;
 }
 
-.dark-mode section,
-.dark-mode .card,
-.dark-mode .avis,
-.dark-mode .newsletter {
-  background: #1b263b !important;
-  color: white !important;
+.dark .card {
+  background:#1b263b;
+  color:white;
 }
 
-.dark-mode header,
-.dark-mode footer {
-  background: #000814 !important;
-}
-.card img {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 10px;
-}
-
-.card {
-  transition: 0.3s;
+/* HEADER */
+header {
+  background:#0d1b2a;
+  color:white;
+  padding:10px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
 }
 
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+.logo-box img { height:40px; }
+
+nav ul {
+  display:flex;
+  gap:10px;
+  list-style:none;
+  padding:0;
+}
+
+nav a {
+  color:white;
+  text-decoration:none;
+  font-size:14px;
+}
+
+/* HERO */
+.hero {
+  text-align:center;
+  padding:60px 15px;
+  background:#1b263b;
+  color:white;
 }
 
 .btn {
-  display: inline-block;
-  margin-top: 10px;
-}
-.logo-box {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.logo-box img {
-  height: 50px;
-  border-radius: 10px;
+  display:inline-block;
+  margin:10px 5px;
+  padding:10px 20px;
+  background:#f77f00;
+  color:white;
+  border-radius:20px;
+  text-decoration:none;
 }
 
-.logo-box span {
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-}
-/* 📱 MOBILE OPTIMISATION */
-@media (max-width: 768px) {
-
-  /* HEADER */
-  header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  nav ul {
-    flex-direction: column;
-    gap: 10px;
-    width: 100%;
-  }
-
-  nav ul li {
-    width: 100%;
-  }
-
-  nav ul li a {
-    display: block;
-    padding: 10px;
-    background: #1b263b;
-    border-radius: 8px;
-  }
-
-  /* HERO */
-  .hero {
-    padding: 50px 15px;
-  }
-
-  .hero h1 {
-    font-size: 1.8em;
-  }
-
-  .hero p {
-    font-size: 1em;
-  }
-
-  /* GRID */
-  .grid {
-    grid-template-columns: 1fr;
-  }
-
-  /* CARDS */
-  .card {
-    margin: 10px 0;
-  }
-
-  .card img {
-    height: 180px;
-  }
-
-  /* BOUTONS */
-  .btn {
-    width: 100%;
-    text-align: center;
-  }
-
-  /* NEWSLETTER */
-  .newsletter input {
-    width: 100%;
-    margin-bottom: 10px;
-  }
-
-  /* FLOAT BUTTONS */
-  .float-btns {
-    right: 10px;
-    bottom: 10px;
-  }
-
-  .float-btns img {
-    width: 45px;
-    height: 45px;
-  }
-
-}
-.avis-section {
-  padding:30px;
-  text-align:center;
+/* GRID */
+.grid {
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap:20px;
+  padding:20px;
 }
 
-.avis-container {
+/* CARD */
+.card {
+  background:white;
+  border-radius:12px;
   overflow:hidden;
-  max-width:400px;
-  margin:auto;
-}
-
-.avis-track {
-  display:flex;
-  transition:0.5s;
-}
-
-.avis-item {
-  min-width:100%;
-  font-size:16px;
-  padding:15px;
-}
-.newsletter {
   text-align:center;
-  padding:30px;
 }
 
-.newsletter input {
-  padding:10px;
-  width:250px;
-  border-radius:5px;
-  border:1px solid #ccc;
+.card img {
+  width:100%;
+  height:180px;
+  object-fit:cover;
 }
+
+/* FLOAT BUTTONS */
+.float-btns {
+  position:fixed;
+  bottom:15px;
+  right:15px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.float-btns img {
+  width:45px;
+  height:45px;
+  border-radius:50%;
+}
+
+/* LANG BUTTON */
+.lang-box {
+  position:fixed;
+  top:10px;
+  right:10px;
+  z-index:1000;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  nav ul { flex-direction:column; width:100%; }
+  nav a { display:block; padding:10px; background:#1b263b; }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- LANG + DARK -->
+<div class="lang-box">
+<button onclick="setLang('fr')">FR</button>
+<button onclick="setLang('en')">EN</button>
+<button onclick="toggleDark()">🌙</button>
+</div>
+
+<header>
+<div class="logo-box">
+<img src="https://i12.tvoysad.ru/2025/09/28/ChatGPT-Image-28-sept.-2025-21_28_045d3cedb349f11fc7.png">
+</div>
+
+<nav>
+<ul>
+<li><a href="index.html" id="nav1">Accueil</a></li>
+<li><a href="produits.html" id="nav2">Produits</a></li>
+<li><a href="mdm.html" id="nav3">Fichiers MDM</a></li>
+<li><a href="logiciels.html" id="nav4">Logiciels</a></li>
+<li><a href="accessoires.html" id="nav5">Accessoires</a></li>
+<li><a href="services.html" id="nav6">Services</a></li>
+<li><a href="contact.html" id="nav7">Contact</a></li>
+</ul>
+</nav>
+</header>
+
+<section class="hero">
+<h1 id="title">JosanovicTech – Solutions Digitales & GSM</h1>
+<p id="desc">Solutions MDM, GSM, Accessoires et Maintenance</p>
+
+<a href="produits.html" class="btn" id="btn1">Explorer</a>
+<a href="frpbypass.html" class="btn" id="btn2">FRP Bypass</a>
+</section>
+
+<section>
+<h2 id="cat">Nos Catégories</h2>
+
+<div class="grid">
+
+<div class="card">
+<img src="images/mdm.jpg">
+<h3 id="c1">Fichiers MDM</h3>
+<p id="c1d">Solutions de contournement</p>
+<a href="mdm.html" class="btn">Voir</a>
+</div>
+
+<div class="card">
+<img src="images/gsm.jpg">
+<h3 id="c2">Logiciels GSM</h3>
+<p id="c2d">Outils de déblocage</p>
+<a href="logiciels.html" class="btn">Voir</a>
+</div>
+
+<div class="card">
+<img src="images/accessoires.jpg">
+<h3 id="c3">Accessoires PC</h3>
+<p id="c3d">RAM, SSD, clavier</p>
+<a href="accessoires.html" class="btn">Explorer</a>
+</div>
+
+<div class="card">
+<img src="images/maintenance.jpg">
+<h3 id="c4">Maintenance</h3>
+<p id="c4d">Réparation appareils</p>
+<a href="services.html" class="btn">Voir</a>
+</div>
+
+</div>
+</section>
+<section class="avis-section">
+  <h2 id="avis-title">⭐ Avis clients ⭐</h2>
+
+  <div class="avis-box">
+    <div class="avis-item active">★★★★★ "Service très rapide 🔥" - Junior</div>
+    <div class="avis-item">★★★★★ "Très fiable et pro" - Patrick</div>
+    <div class="avis-item">★★★★★ "Support WhatsApp rapide" - Kevin</div>
+    <div class="avis-item">★★★★★ "Produits de qualité" - Grâce</div>
+    <div class="avis-item">★★★★★ "Je recommande à 100%" - Alain</div>
+  </div>
+</section>
+<section class="newsletter">
+  <h2 id="news-title">Abonnez-vous à notre newsletter</h2>
+
+  <form id="newsForm">
+    <input type="email" id="email" placeholder="votre email" required>
+    <button class="btn">S’abonner</button>
+  </form>
+
+  <p id="msg"></p>
+</section>
+<footer style="background:#0d1b2a; color:white; padding:20px; text-align:center;">
+<p id="foot">©2026 JosanovicTech</p>
+</footer>
+
+<!-- FLOAT -->
+<div class="float-btns">
+
+<a href="https://wa.me/243999160981"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png"></a>
+
+<a href="https://t.me/josanovic"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png"></a>
+
+<a href="https://youtube.com/@josanovictech12"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png"></a>
+
+<a href="https://www.tiktok.com/"><img src="https://cdn-icons-png.flaticon.com/512/3046/3046126.png"></a>
+
+</div>
+
+<script>
+
+// 🌍 TRANSLATION
+function setLang(lang){
+
+localStorage.setItem("lang", lang);
+
+if(lang==="en"){
+nav1.innerText="Home";
+nav2.innerText="Products";
+nav3.innerText="MDM Files";
+nav4.innerText="Software";
+nav5.innerText="Accessories";
+nav6.innerText="Services";
+nav7.innerText="Contact";
+
+title.innerText="JosanovicTech Store";
+desc.innerText="MDM, GSM, Accessories and Maintenance Solutions";
+
+btn1.innerText="Explore";
+btn2.innerText="FRP Bypass";
+
+cat.innerText="Categories";
+
+c1.innerText="MDM Files";
+c1d.innerText="Bypass solutions";
+
+c2.innerText="GSM Software";
+c2d.innerText="Unlock tools";
+
+c3.innerText="PC Accessories";
+c3d.innerText="RAM, SSD, keyboard";
+
+c4.innerText="Maintenance";
+c4d.innerText="Device repair";
+
+avisTitle.innerText = (lang==="en") ? "⭐ Customer Reviews ⭐" : "⭐ Avis clients ⭐";
+newsTitle.innerText = (lang==="en") ? "Subscribe to our newsletter" : "Abonnez-vous à notre newsletter";
+
+foot.innerText="©2026 All rights reserved";
+}
+
+if(lang==="fr"){
+location.reload();
+}
+}
+
+// 🌙 DARK MODE
+function toggleDark(){
+document.body.classList.toggle("dark");
+localStorage.setItem("dark", document.body.classList.contains("dark"));
+}
+
+// LOAD
+setLang(localStorage.getItem("lang") || "fr");
+
+if(localStorage.getItem("dark")==="true"){
+document.body.classList.add("dark");
+}
+
+</script>
+<script>
+
+let avisIndex = 0;
+
+function showAvis() {
+  const avis = document.querySelectorAll(".avis-item");
+
+  avis.forEach(a => a.classList.remove("active"));
+
+  avisIndex = (avisIndex + 1) % avis.length;
+
+  avis[avisIndex].classList.add("active");
+}
+
+setInterval(showAvis, 3000);
+
+<script>
+
+document.getElementById("newsForm").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  let email = document.getElementById("email").value;
+
+  // sauvegarde simple (localStorage)
+  let list = JSON.parse(localStorage.getItem("emails") || "[]");
+  list.push(email);
+  localStorage.setItem("emails", JSON.stringify(list));
+
+  document.getElementById("msg").innerText = "✅ Merci pour votre abonnement !";
+
+  this.reset();
+});
+
+</script>
+</body>
+</html>
