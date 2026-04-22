@@ -3,38 +3,130 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>JosanovicTech Store</title>
+<title>JosanovicTech – Solutions Digitales & GSM</title>
 
 <style>
-body { margin:0; font-family:Arial; background:#9c0fdd7a; color:#333; transition:0.3s; }
-header { background:#0d1b2a; color:white; padding:10px; display:flex; justify-content:space-between; align-items:center; }
-nav ul { display:flex; gap:15px; list-style:none; }
-nav a { color:white; text-decoration:none; }
 
-.hero { text-align:center; padding:80px; color:white; background:#1b263b; }
-
-.btn { background:#f77f00; padding:10px 20px; color:white; border-radius:20px; text-decoration:none; }
-
-section { padding:40px; text-align:center; }
-
-.card { background:white; padding:20px; border-radius:10px; margin:10px; }
-
-.dark { background:#0d1b2a; color:white; }
-
-.dark .card { background:#1b263b; color:white; }
-
-.lang-box {
-position:fixed;
-top:10px;
-right:10px;
-z-index:1000;
+body {
+  margin:0;
+  font-family: Arial;
+  background:#9c0fdd7a;
+  transition:0.3s;
 }
+
+/* DARK MODE */
+.dark {
+  background:#0d1b2a;
+  color:white;
+}
+
+.dark .card {
+  background:#1b263b;
+  color:white;
+}
+
+/* HEADER */
+header {
+  background:#0d1b2a;
+  color:white;
+  padding:10px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+}
+
+.logo-box img { height:40px; }
+
+nav ul {
+  display:flex;
+  gap:10px;
+  list-style:none;
+  padding:0;
+}
+
+nav a {
+  color:white;
+  text-decoration:none;
+  font-size:14px;
+}
+
+/* HERO */
+.hero {
+  text-align:center;
+  padding:60px 15px;
+  background:#1b263b;
+  color:white;
+}
+
+.btn {
+  display:inline-block;
+  margin:10px 5px;
+  padding:10px 20px;
+  background:#f77f00;
+  color:white;
+  border-radius:20px;
+  text-decoration:none;
+}
+
+/* GRID */
+.grid {
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap:20px;
+  padding:20px;
+}
+
+/* CARD */
+.card {
+  background:white;
+  border-radius:12px;
+  overflow:hidden;
+  text-align:center;
+}
+
+.card img {
+  width:100%;
+  height:180px;
+  object-fit:cover;
+}
+
+/* FLOAT BUTTONS */
+.float-btns {
+  position:fixed;
+  bottom:15px;
+  right:15px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.float-btns img {
+  width:45px;
+  height:45px;
+  border-radius:50%;
+}
+
+/* LANG BUTTON */
+.lang-box {
+  position:fixed;
+  top:10px;
+  right:10px;
+  z-index:1000;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  nav ul { flex-direction:column; width:100%; }
+  nav a { display:block; padding:10px; background:#1b263b; }
+}
+
 </style>
 </head>
 
 <body>
 
-<!-- 🌍 LANG + DARK -->
+<!-- LANG + DARK -->
 <div class="lang-box">
 <button onclick="setLang('fr')">FR</button>
 <button onclick="setLang('en')">EN</button>
@@ -42,240 +134,154 @@ z-index:1000;
 </div>
 
 <header>
-  <div class="logo-box">
-  </div>
+<div class="logo-box">
+<img src="https://i12.tvoysad.ru/2025/09/28/ChatGPT-Image-28-sept.-2025-21_28_045d3cedb349f11fc7.png">
+</div>
 
-  <nav>
-    <ul>
-      <li><a href="index.html" id="nav-home">Accueil</a></li>
-      <li><a href="produits.html" id="nav-products">Produits</a></li>
-      <li><a href="mdm.html" id="nav-mdm">Fichiers MDM</a></li>
-      <li><a href="logiciels.html" id="nav-soft">Logiciels</a></li>
-      <li><a href="accessoires.html" id="nav-acc">Accessoires</a></li>
-      <li><a href="services.html" id="nav-serv">Services</a></li>
-      <li><a href="contact.html" id="nav-contact">Contact</a></li>
-      <li><a href="client/login.html" id="nav-client">Espace Client</a></li>
-    </ul>
-  </nav>
+<nav>
+<ul>
+<li><a href="index.html" id="nav1">Accueil</a></li>
+<li><a href="produits.html" id="nav2">Produits</a></li>
+<li><a href="mdm.html" id="nav3">Fichiers MDM</a></li>
+<li><a href="logiciels.html" id="nav4">Logiciels</a></li>
+<li><a href="accessoires.html" id="nav5">Accessoires</a></li>
+<li><a href="services.html" id="nav6">Services</a></li>
+<li><a href="contact.html" id="nav7">Contact</a></li>
+</ul>
+</nav>
 </header>
 
 <section class="hero">
 <h1 id="title">JosanovicTech – Solutions Digitales & GSM</h1>
-<p id="subtitle">Votre solution fiable pour Fichiers MDM, Logiciels GSM...</p>
+<p id="desc">Solutions MDM, GSM, Accessoires et Maintenance</p>
 
-<a href="produits.html" class="btn" id="btn-explore">Explorer nos produits</a>
-<a href="frpbypass.html" class="btn" id="btn-frp">FRP Bypass</a>
+<a href="produits.html" class="btn" id="btn1">Explorer</a>
+<a href="frpbypass.html" class="btn" id="btn2">FRP Bypass</a>
 </section>
+
 <section>
-<h2 id="cat-title">produit populaire</h2>
+<h2 id="cat">Nos Catégories</h2>
+
+<div class="grid">
 
 <div class="card">
-<h3>Guide PDF Tech</h3>
-<p>Optimisation + astuces professionnelles</p>
-<a href="paiements.html" class="btn">Acheter - 3$</a>
+<img src="images/mdm.jpg">
+<h3 id="c1">Fichiers MDM</h3>
+<p id="c1d">Solutions de contournement</p>
+<a href="mdm.html" class="btn">Voir</a>
 </div>
 
+<div class="card">
+<img src="images/gsm.jpg">
+<h3 id="c2">Logiciels GSM</h3>
+<p id="c2d">Outils de déblocage</p>
+<a href="logiciels.html" class="btn">Voir</a>
+</div>
+
+<div class="card">
+<img src="images/accessoires.jpg">
+<h3 id="c3">Accessoires PC</h3>
+<p id="c3d">RAM, SSD, clavier</p>
+<a href="accessoires.html" class="btn">Explorer</a>
+</div>
+
+<div class="card">
+<img src="images/maintenance.jpg">
+<h3 id="c4">Maintenance</h3>
+<p id="c4d">Réparation appareils</p>
+<a href="services.html" class="btn">Voir</a>
+</div>
+
+</div>
 </section>
-<section>
-  <h2 id="cat-title">Nos Catégories</h2>
+<section class="avis-section">
+  <h2 id="avis-title">⭐ Avis clients ⭐</h2>
 
-  <div class="grid">
+  <div class="avis-container">
+    <div class="avis-track">
 
-    <!-- MDM -->
-    <div class="card">
-      <p>Solutions pour contourner MDM sur divers modèles.</p>
-      <a class="btn" href="mdm.html">Voir</a>
+      <div class="avis-item">★★★★★ "Service très rapide 🔥" - Junior</div>
+      <div class="avis-item">★★★★★ "Très fiable et pro" - Patrick</div>
+      <div class="avis-item">★★★★★ "Support WhatsApp rapide" - Kevin</div>
+      <div class="avis-item">★★★★★ "Produits de qualité" - Grâce</div>
+      <div class="avis-item">★★★★★ "Je recommande à 100%" - Alain</div>
+
     </div>
-
-    <!-- GSM -->
-    <div class="card">
-      <h3>Logiciels GSM</h3>
-      <a href="https://imgbb.com/"><img src="https://i.ibb.co/Q7Bb2tQJ/jjjj.png" alt="jjjj" border="0"></a>
-      <p>Outils de déblocage, FRP, flash et plus.</p>
-      <a class="btn" href="logiciels.html">Voir</a>
-    </div>
-
-    <!-- ACCESSOIRES -->
-    <div class="card">
-      <h3>Accessoires PC</h3>
-      <p>RAM, disques, claviers, adaptateurs, etc.</p>
-      <a class="btn" href="accessoires.html">Explorer</a>
-    </div>
-
-    <!-- MAINTENANCE -->
-    <div class="card">
-      <h3>Maintenance Electronique</h3>
-      <a href="https://ibb.co/hJhnkryC"><img src="https://i.ibb.co/pBGsgNxn/maintenance-informatique-2560x1706-1.png" alt="maintenance-informatique-2560x1706-1" border="0"></a>
-      <p>Réparation de téléphones, ordinateurs et plus.</p>
-      <a class="btn" href="services.html">voir nos services de maintenance</a>
-    </div>
-
   </div>
 </section>
+<section class="newsletter">
+  <h2 id="news-title">Abonnez-vous à notre newsletter</h2>
 
-<section>
-<h2 id="avis-title">⭐ Ce que disent nos clients ⭐</h2>
+  <form onsubmit="subscribe(event)">
+    <input type="email" id="email" placeholder="Votre email" required>
+    <br><br>
+    <button class="btn">S’abonner</button>
+  </form>
 
- <div class="avis-slider">
-      <div class="avis-track">
-
-          <div class="avis-item">
-              <div class="stars">★★★★★</div>
-              <p>"Service impeccable, j’ai récupéré mon fichier MDM en moins de 10 minutes !"</p>
-              <strong>- Junior M.</strong>
-          </div>
-
-          <div class="avis-item">
-              <div class="stars">★★★★★</div>
-              <p>"Les prix sont abordables et le support est rapide. Je recommande."</p>
-              <strong>- Patrick Tech</strong>
-          </div>
-
-          <div class="avis-item">
-              <div class="stars">★★★★★</div>
-              <p>"J'ai acheté un SSD et un clavier, livraison rapide et produits impeccables."</p>
-              <strong>- Grâce A.</strong>
-          </div>
-
-          <div class="avis-item">
-              <div class="stars">★★★★★</div>
-              <p>"Boutique sérieuse, fichiers MDM fiables et assistance excellente."</p>
-              <strong>- Kevin M.</strong>
-          </div>
-
-      </div>
-  </div>
+  <p id="msg"></p>
 </section>
+<footer style="background:#0d1b2a; color:white; padding:20px; text-align:center;">
+<p id="foot">©2026 JosanovicTech</p>
+</footer>
 
-</section>
+<!-- FLOAT -->
+<div class="float-btns">
 
-  <section class="newsletter">
-    <h2>Abonnez-vous à notre newsletter</h2>
-    <form>
-      <input type="email" placeholder="Entrez votre email" required>
-      <button type="submit">S’abonner</button>
-    </form>
-  </section>
+<a href="https://wa.me/243999160981"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png"></a>
 
-  <footer>
-    <img src="https://i12.tvoysad.ru/2025/09/28/ChatGPT-Image-28-sept.-2025-21_28_045d3cedb349f11fc7.png" alt="JosanovicTech Logo" style="height:50px; display:block; margin:0 auto 10px;">
-    <p>&copy;2026 powered by josanovic. tout droit reserve.</p>
-  </footer>
+<a href="https://t.me/josanovic"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png"></a>
 
+<a href="https://youtube.com/@josanovictech12"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png"></a>
+
+<a href="https://www.tiktok.com/"><img src="https://cdn-icons-png.flaticon.com/512/3046/3046126.png"></a>
+
+</div>
 
 <script>
 
-// 🌍 TRADUCTIONS
-const T = {
-fr: {
-title:"JosanovicTech – Solutions Digitales & GSM",
-desc:"Votre solution fiable pour MDM, GSM et accessoires",
-btn1:"Explorer",
-nav1:"Accueil",
-nav2:"Produits",
-nav3:"Services",
-nav4:"Contact",
-nav5:"Espace Client",
-cat:"Nos Catégories",
-c1:"Fichiers MDM",
-c1d:"Solutions de contournement",
-c2:"Logiciels GSM",
-c2d:"Outils de déblocage",
-c3:"Accessoires PC",
-c3d:"RAM, SSD, clavier",
-avis:"Avis clients",
-avis1:"Service rapide et fiable",
-avis2:"Très satisfait",
-news:"Newsletter",
-sub:"S’abonner",
-foot:"©2026 tous droits réservés"
-},
-
-en: {
-title:"JosanovicTech – Digital & GSM Solutions",
-desc:"Your trusted solution for MDM, GSM and accessories",
-btn1:"Explore",
-nav1:"Home",
-nav2:"Products",
-nav3:"Services",
-nav4:"Contact",
-nav5:"Client Area",
-cat:"Categories",
-c1:"MDM Files",
-c1d:"Bypass solutions",
-c2:"GSM Software",
-c2d:"Unlock tools",
-c3:"PC Accessories",
-c3d:"RAM, SSD, keyboard",
-avis:"Customer reviews",
-avis1:"Fast and reliable service",
-avis2:"Very satisfied",
-news:"Newsletter",
-sub:"Subscribe",
-foot:"©2026 all rights reserved"
-}
-};
-
-// 🌍 SWITCH LANG
+// 🌍 TRANSLATION
 function setLang(lang){
 
-  localStorage.setItem("lang", lang);
+localStorage.setItem("lang", lang);
 
-  if(lang === "en"){
+if(lang==="en"){
+nav1.innerText="Home";
+nav2.innerText="Products";
+nav3.innerText="MDM Files";
+nav4.innerText="Software";
+nav5.innerText="Accessories";
+nav6.innerText="Services";
+nav7.innerText="Contact";
 
-    // MENU
-    document.getElementById("nav-home").innerText = "Home";
-    document.getElementById("nav-products").innerText = "Products";
-    document.getElementById("nav-mdm").innerText = "MDM Files";
-    document.getElementById("nav-soft").innerText = "Software";
-    document.getElementById("nav-acc").innerText = "Accessories";
-    document.getElementById("nav-serv").innerText = "Services";
-    document.getElementById("nav-contact").innerText = "Contact";
-    document.getElementById("nav-client").innerText = "Client Area";
+title.innerText="JosanovicTech Store";
+desc.innerText="MDM, GSM, Accessories and Maintenance Solutions";
 
-    // HERO
-    document.getElementById("title").innerText = "JosanovicTech – Digital & GSM Solutions";
-    document.getElementById("subtitle").innerText = "Your trusted solution for MDM, GSM and accessories";
-    document.getElementById("btn-explore").innerText = "Explore our products";
-    document.getElementById("btn-frp").innerText = "FRP Bypass";
+btn1.innerText="Explore";
+btn2.innerText="FRP Bypass";
 
-    // SECTIONS
-    document.getElementById("cat-title").innerText = "news",
-    document.getElementById("avis-title").innerText = "⭐ What our clients say ⭐";
-    document.getElementById("news-title").innerText = "Subscribe to our newsletter";
+cat.innerText="Categories";
 
-    // FOOTER
-    document.getElementById("footer-text").innerText = "©2026 all rights reserved";
+c1.innerText="MDM Files";
+c1d.innerText="Bypass solutions";
 
-  }
+c2.innerText="GSM Software";
+c2d.innerText="Unlock tools";
 
-  if(lang === "fr"){
+c3.innerText="PC Accessories";
+c3d.innerText="RAM, SSD, keyboard";
 
-    // MENU
-    document.getElementById("nav-home").innerText = "Accueil";
-    document.getElementById("nav-products").innerText = "Produits";
-    document.getElementById("nav-mdm").innerText = "Fichiers MDM";
-    document.getElementById("nav-soft").innerText = "Logiciels";
-    document.getElementById("nav-acc").innerText = "Accessoires";
-    document.getElementById("nav-serv").innerText = "Services";
-    document.getElementById("nav-contact").innerText = "Contact";
-    document.getElementById("nav-client").innerText = "Espace Client";
+c4.innerText="Maintenance";
+c4d.innerText="Device repair";
 
-    // HERO
-    document.getElementById("title").innerText = "JosanovicTech – Solutions Digitales & GSM";
-    document.getElementById("subtitle").innerText = "Votre solution fiable pour Fichiers MDM, Logiciels GSM et Accessoires";
-    document.getElementById("btn-explore").innerText = "Explorer nos produits";
-    document.getElementById("btn-frp").innerText = "FRP Bypass";
+avisTitle.innerText = (lang==="en") ? "⭐ Customer Reviews ⭐" : "⭐ Avis clients ⭐";
+newsTitle.innerText = (lang==="en") ? "Subscribe to our newsletter" : "Abonnez-vous à notre newsletter";
 
-    // SECTIONS
-    document.getElementById("cat-title").innerText = "Nouveauté",
-    document.getElementById("avis-title").innerText = "⭐ Ce que disent nos clients ⭐";
-    document.getElementById("news-title").innerText = "Abonnez-vous à notre newsletter";
+foot.innerText="©2026 All rights reserved";
+}
 
-    // FOOTER
-    document.getElementById("footer-text").innerText = "©2026 powered by josanovic. tous droits réservés";
-
-  }
+if(lang==="fr"){
+location.reload();
+}
 }
 
 // 🌙 DARK MODE
@@ -287,29 +293,35 @@ localStorage.setItem("dark", document.body.classList.contains("dark"));
 // LOAD
 setLang(localStorage.getItem("lang") || "fr");
 
-if(localStorage.getItem("dark") === "true"){
+if(localStorage.getItem("dark")==="true"){
 document.body.classList.add("dark");
 }
 
 </script>
-<div style="position:fixed; bottom:20px; right:20px; display:flex; flex-direction:column; gap:10px;">
+<script>
 
-<a href="https://wa.me/243999160981" target="_blank">
-<img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" width="50">
-</a>
+let indexAvis = 0;
 
-<a href="https://t.me/josanovic" target="_blank">
-<img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" width="50">
-</a>
+function slideAvis(){
+  const track = document.querySelector(".avis-track");
+  const total = document.querySelectorAll(".avis-item").length;
 
-<a href="https://youtube.com/@josanovictech12" target="_blank">
-<img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" width="50">
-</a>
+  indexAvis = (indexAvis + 1) % total;
 
-<a href="https://tiktok.com" target="_blank">
-<img src="https://cdn-icons-png.flaticon.com/512/3046/3046126.png" width="50">
-</a>
+  track.style.transform = "translateX(-" + (indexAvis * 100) + "%)";
+}
 
-</div>
+setInterval(slideAvis, 3000);
+
+</script>
+<script>
+
+function subscribe(e){
+  e.preventDefault();
+
+  document.getElementById("msg").innerText = "✅ Merci pour votre abonnement !";
+}
+
+</script>
 </body>
 </html>
