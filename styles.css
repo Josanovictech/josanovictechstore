@@ -154,4 +154,80 @@
   font-weight: bold;
   font-size: 18px;
 }
+/* 📱 MOBILE OPTIMISATION */
+@media (max-width: 768px) {
 
+  /* HEADER */
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  nav ul li {
+    width: 100%;
+  }
+
+  nav ul li a {
+    display: block;
+    padding: 10px;
+    background: #1b263b;
+    border-radius: 8px;
+  }
+
+  /* HERO */
+  .hero {
+    padding: 50px 15px;
+  }
+
+  .hero h1 {
+    font-size: 1.8em;
+  }
+
+  .hero p {
+    font-size: 1em;
+  }
+
+  /* GRID */
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* CARDS */
+  .card {
+    margin: 10px 0;
+  }
+
+  .card img {
+    height: 180px;
+  }
+
+  /* BOUTONS */
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* NEWSLETTER */
+  .newsletter input {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  /* FLOAT BUTTONS */
+  .float-btns {
+    right: 10px;
+    bottom: 10px;
+  }
+
+  .float-btns img {
+    width: 45px;
+    height: 45px;
+  }
+
+}
