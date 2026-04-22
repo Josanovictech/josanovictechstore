@@ -329,3 +329,35 @@ document.getElementById("newsForm").addEventListener("submit", function(e){
 </script>
 </body>
 </html>
+.avis-section {
+  text-align:center;
+  padding:30px;
+}
+
+.avis-box {
+  position:relative;
+  height:80px;
+}
+
+.avis-item {
+  position:absolute;
+  width:100%;
+  opacity:0;
+  transition:0.5s;
+  font-size:16px;
+}
+
+.avis-item.active {
+  opacity:1;
+}
+  .newsletter {
+  text-align:center;
+  padding:30px;
+}
+
+.newsletter input {
+  padding:10px;
+  width:250px;
+  border-radius:5px;
+  border:1px solid #ccc;
+}
