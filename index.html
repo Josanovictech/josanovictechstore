@@ -197,24 +197,19 @@ nav a {
 <section class="avis-section">
   <h2 id="avis-title">⭐ Avis clients ⭐</h2>
 
-  <div class="avis-container">
-    <div class="avis-track">
-
-      <div class="avis-item">★★★★★ "Service très rapide 🔥" - Junior</div>
-      <div class="avis-item">★★★★★ "Très fiable et pro" - Patrick</div>
-      <div class="avis-item">★★★★★ "Support WhatsApp rapide" - Kevin</div>
-      <div class="avis-item">★★★★★ "Produits de qualité" - Grâce</div>
-      <div class="avis-item">★★★★★ "Je recommande à 100%" - Alain</div>
-
-    </div>
+  <div class="avis-box">
+    <div class="avis-item active">★★★★★ "Service très rapide 🔥" - Junior</div>
+    <div class="avis-item">★★★★★ "Très fiable et pro" - Patrick</div>
+    <div class="avis-item">★★★★★ "Support WhatsApp rapide" - Kevin</div>
+    <div class="avis-item">★★★★★ "Produits de qualité" - Grâce</div>
+    <div class="avis-item">★★★★★ "Je recommande à 100%" - Alain</div>
   </div>
 </section>
 <section class="newsletter">
   <h2 id="news-title">Abonnez-vous à notre newsletter</h2>
 
-  <form onsubmit="subscribe(event)">
-    <input type="email" id="email" placeholder="Votre email" required>
-    <br><br>
+  <form id="newsForm">
+    <input type="email" id="email" placeholder="votre email" required>
     <button class="btn">S’abonner</button>
   </form>
 
@@ -242,47 +237,59 @@ nav a {
 // 🌍 TRANSLATION
 function setLang(lang){
 
-localStorage.setItem("lang", lang);
+  localStorage.setItem("lang", lang);
 
-if(lang==="en"){
-nav1.innerText="Home";
-nav2.innerText="Products";
-nav3.innerText="MDM Files";
-nav4.innerText="Software";
-nav5.innerText="Accessories";
-nav6.innerText="Services";
-nav7.innerText="Contact";
+  // MENU
+  nav1.innerText = (lang==="en") ? "Home" : "Accueil";
+  nav2.innerText = (lang==="en") ? "Products" : "Produits";
+  nav3.innerText = (lang==="en") ? "MDM Files" : "Fichiers MDM";
+  nav4.innerText = (lang==="en") ? "Software" : "Logiciels";
+  nav5.innerText = (lang==="en") ? "Accessories" : "Accessoires";
+  nav6.innerText = (lang==="en") ? "Services" : "Services";
+  nav7.innerText = (lang==="en") ? "Contact" : "Contact";
 
-title.innerText="JosanovicTech Store";
-desc.innerText="MDM, GSM, Accessories and Maintenance Solutions";
+  // HERO
+  title.innerText = (lang==="en") 
+    ? "JosanovicTech Store" 
+    : "JosanovicTech Store";
 
-btn1.innerText="Explore";
-btn2.innerText="FRP Bypass";
+  desc.innerText = (lang==="en") 
+    ? "MDM, GSM, Accessories and Maintenance Solutions"
+    : "Solutions MDM, GSM, Accessoires et Maintenance";
 
-cat.innerText="Categories";
+  btn1.innerText = (lang==="en") ? "Explore" : "Explorer";
+  btn2.innerText = "FRP Bypass";
 
-c1.innerText="MDM Files";
-c1d.innerText="Bypass solutions";
+  // CATEGORIES
+  cat.innerText = (lang==="en") ? "Categories" : "Nos Catégories";
 
-c2.innerText="GSM Software";
-c2d.innerText="Unlock tools";
+  c1.innerText = (lang==="en") ? "MDM Files" : "Fichiers MDM";
+  c1d.innerText = (lang==="en") ? "Bypass solutions" : "Solutions de contournement";
 
-c3.innerText="PC Accessories";
-c3d.innerText="RAM, SSD, keyboard";
+  c2.innerText = (lang==="en") ? "GSM Software" : "Logiciels GSM";
+  c2d.innerText = (lang==="en") ? "Unlock tools" : "Outils de déblocage";
 
-c4.innerText="Maintenance";
-c4d.innerText="Device repair";
+  c3.innerText = (lang==="en") ? "PC Accessories" : "Accessoires PC";
+  c3d.innerText = (lang==="en") ? "RAM, SSD, keyboard" : "RAM, SSD, clavier";
 
-avisTitle.innerText = (lang==="en") ? "⭐ Customer Reviews ⭐" : "⭐ Avis clients ⭐";
-newsTitle.innerText = (lang==="en") ? "Subscribe to our newsletter" : "Abonnez-vous à notre newsletter";
+  c4.innerText = (lang==="en") ? "Maintenance" : "Maintenance";
+  c4d.innerText = (lang==="en") ? "Device repair" : "Réparation appareils";
 
-foot.innerText="©2026 All rights reserved";
+  // AVIS
+  document.getElementById("avis-title").innerText =
+    (lang==="en") ? "⭐ Customer Reviews ⭐" : "⭐ Avis clients ⭐";
+
+  // NEWSLETTER
+  document.getElementById("news-title").innerText =
+    (lang==="en") ? "Subscribe to our newsletter" : "Abonnez-vous à notre newsletter";
+
+  // FOOTER
+  foot.innerText = (lang==="en")
+    ? "©2026 All rights reserved"
+    : "©2026 Tous droits réservés";
 }
 
-if(lang==="fr"){
-location.reload();
-}
-}
+
 
 // 🌙 DARK MODE
 function toggleDark(){
@@ -300,27 +307,36 @@ document.body.classList.add("dark");
 </script>
 <script>
 
-let indexAvis = 0;
+let avisIndex = 0;
 
-function slideAvis(){
-  const track = document.querySelector(".avis-track");
-  const total = document.querySelectorAll(".avis-item").length;
+function showAvis() {
+  const avis = document.querySelectorAll(".avis-item");
 
-  indexAvis = (indexAvis + 1) % total;
+  avis.forEach(a => a.classList.remove("active"));
 
-  track.style.transform = "translateX(-" + (indexAvis * 100) + "%)";
+  avisIndex = (avisIndex + 1) % avis.length;
+
+  avis[avisIndex].classList.add("active");
 }
 
-setInterval(slideAvis, 3000);
+setInterval(showAvis, 3000);
 
-</script>
 <script>
 
-function subscribe(e){
+document.getElementById("newsForm").addEventListener("submit", function(e){
   e.preventDefault();
 
+  let email = document.getElementById("email").value;
+
+  // sauvegarde simple (localStorage)
+  let list = JSON.parse(localStorage.getItem("emails") || "[]");
+  list.push(email);
+  localStorage.setItem("emails", JSON.stringify(list));
+
   document.getElementById("msg").innerText = "✅ Merci pour votre abonnement !";
-}
+
+  this.reset();
+});
 
 </script>
 </body>
