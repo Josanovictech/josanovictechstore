@@ -361,3 +361,15 @@ document.getElementById("newsForm").addEventListener("submit", function(e){
   border-radius:5px;
   border:1px solid #ccc;
 }
+  .product-box {
+  text-align:center;
+  padding:30px;
+  background:white;
+  border-radius:10px;
+  margin:20px;
+}
+
+.product-box ul {
+  list-style:none;
+  padding:0;
+}
